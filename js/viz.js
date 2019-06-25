@@ -147,6 +147,10 @@ function restart() {
         d3.select("#stage").text(function(d) {
             return graph.nodes[4].name;
         });
+
+        d3.select("#description").html(function(d) {
+            return graph.nodes[4].text;
+        });
         
         // GENERAL UPDATE PATTERN
         // apply to nodes and links
