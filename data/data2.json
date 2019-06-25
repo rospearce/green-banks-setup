@@ -1,0 +1,54 @@
+{
+    "nodes": [
+        {
+            "id": "1", 
+            "name": "Decision making process",
+            "label1": "Decision making",
+            "label2": "process",
+            "text": "Eventually, you do plan to have dinosaurs on your dinosaur tour, right? God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. Hey, you know how I'm, like, always trying to save the planet? Here's my chance.",
+            "group": 1
+        },
+        {
+            "id": "2", 
+            "name":  "Stakeholder engagment",
+            "label1":  "Stakeholder",
+            "label2":  "engagment",
+            "text": "Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!",
+            "group": 1
+        },
+        {
+            "id": "3", 
+            "name": "Analytical support",
+            "label1": "Analytical",
+            "label2": "support",
+            "text": "Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Must go faster. Jaguar shark! So tell me - does it really exist? What do they got in there? King Kong? Yes, Yes, without the oops! Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists.",
+            "group": 1
+        },
+        {
+            "id": "4", 
+            "name": "Standards and frameworks",
+            "label1": "Standards and",
+            "label2": "frameworks",
+            "text": "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops! We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!",
+            "group": 1
+        },
+        {
+            "id": "5", 
+            "name": "Design",
+            "label1": "Design",
+            "label2": "xx",
+            "text": "Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Must go faster. Jaguar shark! So tell me - does it really exist? What do they got in there? King Kong? Yes, Yes, without the oops! Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists.",
+            "group": 2
+        }
+    ],
+    "links": [
+        {"source": "1", "target": "2", "value": 1},
+        {"source": "2", "target": "3", "value": 1},
+        {"source": "3", "target": "4", "value": 1},
+        {"source": "4", "target": "1", "value": 1},
+        {"source": "5", "target": "1", "value": 2},
+        {"source": "5", "target": "2", "value": 2},
+        {"source": "5", "target": "3", "value": 2},
+        {"source": "5", "target": "4", "value": 2}
+    ]
+}

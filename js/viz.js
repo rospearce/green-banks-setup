@@ -15,10 +15,16 @@ var simulation = d3.forceSimulation()
     )
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json("./data/data.json", function(error, graph) {
+var node;
+var link;
+var circles;
+var label1;
+var label2;
+
+d3.json("./data/data1.json", function(error, graph) {
     if (error) throw error;
 
-    var link = svg.append("g")
+    link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
         .data(graph.links)
@@ -26,23 +32,13 @@ d3.json("./data/data.json", function(error, graph) {
         .attr("stroke-width", function(d) { return d.value; })
         .attr("stroke", "gray");
 
-    var node = svg.append("g")
+    node = svg.append("g")
         .attr("class", "nodes")
         .selectAll("g")
         .data(graph.nodes)
         .enter().append("g");
-        // .each(function(d) {
-        //     console.log("html");
-        //     var div = d3.select("body").append("div")
-        //         .attr('pointer-events', 'none')
-        //         .attr("class", "tooltip")
-        //         .style("opacity", 1)
-        //         .html(d.label)
-        //         .style("left", (d.x + 50 + "px"))
-        //         .style("top", (d.y +"px"));
-        // });
         
-    var circles = node.append("circle")
+    circles = node.append("circle")
         .attr("r", 40)
         .attr("fill", function(d) { return color(d.group); })
         .call(d3.drag()
@@ -51,7 +47,7 @@ d3.json("./data/data.json", function(error, graph) {
             .on("end", dragended));
 
     // hacky way of getting two lines without bothering with html
-    var label1 = node.append("text")
+    label1 = node.append("text")
         .text(function(d) {
             return d.label1;
         })
@@ -59,7 +55,7 @@ d3.json("./data/data.json", function(error, graph) {
         .attr('x', 0)
         .attr('y', -10);
 
-    var label2 = node.append("text")
+    label2 = node.append("text")
         .text(function(d) {
             return d.label2;
         })
@@ -67,8 +63,7 @@ d3.json("./data/data.json", function(error, graph) {
         .attr('x', 0)
         .attr('y', 10);
 
-    simulation
-        .nodes(graph.nodes)
+    simulation.nodes(graph.nodes)
         .on("tick", ticked);
 
     simulation.force("link")
@@ -104,3 +99,57 @@ d3.json("./data/data.json", function(error, graph) {
     d.fx = null;
     d.fy = null;
 }
+
+let step = 2;
+
+function restart() {
+
+    d3.json("./data/data" + step + ".json", function(error, graph) {
+        if (error) throw error;
+
+        console.log(step);
+        
+        // Apply the general update pattern to the nodes.
+        node = node.data(graph.nodes);
+        node.exit().remove();
+        node = node.enter()
+        .append("circle").attr("fill", function(d) { return color(d.id); })
+        .merge(node);
+
+        // Apply the general update pattern to the links.
+        link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
+        link.exit().remove();
+        link = link.enter().append("line").merge(link);
+
+        node.selectAll("text").remove();
+
+        node.append("text").text(function (d) {
+            console.log(d.label1);
+            return d.label1;
+        })
+        .attr("class", "label")
+        .attr('x', 0)
+        .attr('y', -10);
+
+        node.append("text").text(function (d) { return d.label2;})
+        .attr("class", "label")
+        .attr('x', 0)
+        .attr('y', 10);
+
+        // Apply the general update pattern to the labels.
+        // label1 = label1.data(graph.nodes, function(d) { return d.label1;});
+        // label1.exit().remove();
+        // label1 = label1.enter().append("text").text(function(d) {
+        //     return d.label1;
+        // }).merge(label1);
+        // node.append(label1);
+
+        // Update and restart the simulation.
+        simulation.nodes(graph.nodes);
+        simulation.force("link").links(graph.links);
+        simulation.restart();
+
+    });
+}
+
+setTimeout(function(){ restart(step); }, 2000);
