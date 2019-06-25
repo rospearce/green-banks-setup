@@ -30,18 +30,17 @@ d3.json("./data/data.json", function(error, graph) {
         .attr("class", "nodes")
         .selectAll("g")
         .data(graph.nodes)
-        .enter().append("g")
-        .each(function(d) {
-            console.log("html");
-            //var g = d3.select(this);
-            var div = d3.select("body").append("div")
-                .attr('pointer-events', 'none')
-                .attr("class", "tooltip")
-                .style("opacity", 1)
-                .html(d.label)
-                .style("left", (d.x + 50 + "px"))
-                .style("top", (d.y +"px"));
-        });
+        .enter().append("g");
+        // .each(function(d) {
+        //     console.log("html");
+        //     var div = d3.select("body").append("div")
+        //         .attr('pointer-events', 'none')
+        //         .attr("class", "tooltip")
+        //         .style("opacity", 1)
+        //         .html(d.label)
+        //         .style("left", (d.x + 50 + "px"))
+        //         .style("top", (d.y +"px"));
+        // });
         
     var circles = node.append("circle")
         .attr("r", 40)
@@ -50,6 +49,23 @@ d3.json("./data/data.json", function(error, graph) {
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
+
+    // hacky way of getting two lines without bothering with html
+    var label1 = node.append("text")
+        .text(function(d) {
+            return d.label1;
+        })
+        .attr("class", "label")
+        .attr('x', 0)
+        .attr('y', -10);
+
+    var label2 = node.append("text")
+        .text(function(d) {
+            return d.label2;
+        })
+        .attr("class", "label")
+        .attr('x', 0)
+        .attr('y', 10);
 
     node.append("title")
         .text(function(d) { return d.id; });
