@@ -1,3 +1,7 @@
+#wrapper {
+    height: 650px;
+}
+
 .row {
     /* order important so don't override new syntax with old */
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6,7 +10,6 @@
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     height: auto;
-    background-color: #282f42;
 }
 
 .column {
@@ -26,4 +29,9 @@
     -ms-flex: 2 0 0;
     -webkit-flex: 2 0 0;
     flex: 2 0 0;
+}
+
+#viz {
+    width: 100%;
+    height: 100%;
 }
