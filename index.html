@@ -5,6 +5,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="author" content="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
@@ -20,7 +21,7 @@
                         <h2>XXXXX</h2>
                     </div>
                     <div class="column small">
-                        <p><a><i class="fas fa-chevron-circle-left"></i></a><span id="step">1</span><a><i class="fas fa-chevron-circle-right"></i></a></p>
+                        <p><a onclick="backwards();"><i class="fas fa-chevron-circle-left"></i></a><span id="step">1</span><a onclick="forward();"><i class="fas fa-chevron-circle-right"></i></a></p>
                     </div>
                 </div>
                 <div class="row">

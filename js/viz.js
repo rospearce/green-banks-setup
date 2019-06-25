@@ -23,83 +23,91 @@ let label1;
 let label2;
 let step = 1;
 
-d3.json("./data/data1.json", function(error, graph) {
-    if (error) throw error;
+function makeChart () {
 
-    link = svg.append("g")
-        .attr("class", "links")
-        .selectAll("line")
-        .data(graph.links)
-        .enter().append("line")
-        .attr("stroke-width", function(d) { return d.value; })
-        .attr("stroke", "gray");
+    // remove old chart before creating new
+    svg.selectAll("*").remove();
+    nodes = [];
+    links = [];
 
-    node = svg.append("g")
-        .attr("class", "nodes")
-        .selectAll("g")
-        .data(graph.nodes)
-        .enter().append("g");
-        
-    circles = node.append("circle")
-        .attr("r", 40)
-        .attr("fill", function(d) {
-            if (d.id !== "5") {
-                return colors[(step - 1)]; 
-            } else {
-                return "white";
-            }
-        })
-        .call(d3.drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
-
-    // hacky way of getting two lines without bothering with html
-    label1 = node.append("text")
-        .text(function(d) {
-            return d.label1;
-        })
-        .attr("class", "label")
-        .attr('x', 0)
-        .attr('y', -10);
-
-    label2 = node.append("text")
-        .text(function(d) {
-            return d.label2;
-        })
-        .attr("class", "label")
-        .attr('x', 0)
-        .attr('y', 10);
-
+    d3.json("./data/data" + step + ".json", function(error, graph) {
+        if (error) throw error;
     
-    function ticked() {
-
+        link = svg.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(graph.links)
+            .enter().append("line")
+            .attr("stroke-width", function(d) { return d.value; })
+            .attr("stroke", "gray");
+    
+        node = svg.append("g")
+            .attr("class", "nodes")
+            .selectAll("g")
+            .data(graph.nodes)
+            .enter().append("g");
+            
+        circles = node.append("circle")
+            .attr("r", 40)
+            .attr("fill", function(d) {
+                if (d.id !== "5") {
+                    return colors[(step - 1)]; 
+                } else {
+                    return "white";
+                }
+            })
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+    
+        // hacky way of getting two lines without bothering with html
+        label1 = node.append("text")
+            .text(function(d) {
+                return d.label1;
+            })
+            .attr("class", "label")
+            .attr('x', 0)
+            .attr('y', -10);
+    
+        label2 = node.append("text")
+            .text(function(d) {
+                return d.label2;
+            })
+            .attr("class", "label")
+            .attr('x', 0)
+            .attr('y', 10);
+    
         
+        function ticked() {
+    
+            link
+                .attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+    
+            node
+                .attr("transform", function(d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                });
+    
+            // setTimeout(function(){ 
+            //     graph.nodes[0].fx = width / 2;
+            //     graph.nodes[0].fy = height / 2;; 
+            // }, 1000);
+        }
+    
+        simulation.nodes(graph.nodes)
+            .on("tick", ticked);
+    
+        simulation.force("link")
+            .links(graph.links);
+    
+    });
+}
 
-        link
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
-
-        node
-            .attr("transform", function(d) {
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-
-        // setTimeout(function(){ 
-        //     graph.nodes[0].fx = width / 2;
-        //     graph.nodes[0].fy = height / 2;; 
-        // }, 1000);
-    }
-
-    simulation.nodes(graph.nodes)
-        .on("tick", ticked);
-
-    simulation.force("link")
-        .links(graph.links);
-
-});
+makeChart();
 
 function dragstarted(d) {
     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -185,7 +193,40 @@ function restart() {
     });
 }
 
-setTimeout(function(){ 
-    step = 2;
-    restart(); 
-}, 4000);
+function forward () {
+    console.log("forward");
+
+    if (step < 6) {
+        step++;
+        console.log(step);
+        $("#viz").children().animate({opacity: 0}, 500);
+        setTimeout(function() {
+            makeChart(step);
+        }, 1000);
+    } else {
+        // do nothing
+    }
+
+}
+
+function backwards () {
+
+    console.log("backwards");
+
+    if (step > 1) {
+        step--;
+        console.log(step);
+        $("#viz").children().animate({opacity: 0}, 500);
+        setTimeout(function() {
+            makeChart(step);
+        }, 1000);
+    } else {
+        // do nothing
+    }
+
+}
+
+// setTimeout(function(){ 
+//     step = 2;
+//     restart(); 
+// }, 4000);
