@@ -53,7 +53,7 @@ function makeChart () {
             })
             .on("mouseover", mouseover)
             .on("mouseout", mouseout)
-            .on("mouseclick", mouseclick)
+            .on("click", mouseclick)
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
@@ -123,24 +123,18 @@ function dragended(d) {
 function mouseover(d) {
     if (d.id !== "5") {
         d3.select(this).style("fill", function(){return d3.rgb(colors[(stepper - 1)]).darker(1);});
-    } else {
-
     }
 }
 
 function mouseout(d) {
     if (d.id !== "5") {
         d3.select(this).style("fill", function(){return colors[(stepper - 1)]});
-    } else {
-        
     }
 }
 
 function mouseclick(d) {
-    if (d.id !== 5) {
-
-    } else {
-        
+    if (d.id !== "5") {
+        d3.select("#questions").html(d.text);
     }
 }
 
@@ -199,7 +193,7 @@ function restart() {
         })
         .on("mouseover", mouseover)
         .on("mouseout", mouseout)
-        .on("mouseclick", mouseclick)
+        .on("click", mouseclick)
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
