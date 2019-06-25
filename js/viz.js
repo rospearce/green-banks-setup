@@ -67,9 +67,6 @@ d3.json("./data/data.json", function(error, graph) {
         .attr('x', 0)
         .attr('y', 10);
 
-    node.append("title")
-        .text(function(d) { return d.id; });
-
     simulation
         .nodes(graph.nodes)
         .on("tick", ticked);
