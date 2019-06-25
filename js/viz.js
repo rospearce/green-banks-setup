@@ -8,7 +8,11 @@ console.log(height);
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
+    .force('charge', d3.forceManyBody()
+        .strength(-2000)
+        .theta(0.8)
+        // .distanceMax(400)
+    )
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("./data/data.json", function(error, graph) {
@@ -27,21 +31,25 @@ d3.json("./data/data.json", function(error, graph) {
         .selectAll("g")
         .data(graph.nodes)
         .enter().append("g")
+        .each(function(d) {
+            console.log("html");
+            //var g = d3.select(this);
+            var div = d3.select("body").append("div")
+                .attr('pointer-events', 'none')
+                .attr("class", "tooltip")
+                .style("opacity", 1)
+                .html(d.label)
+                .style("left", (d.x + 50 + "px"))
+                .style("top", (d.y +"px"));
+        });
         
     var circles = node.append("circle")
-        .attr("r", 5)
+        .attr("r", 40)
         .attr("fill", function(d) { return color(d.group); })
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
-
-    var lables = node.append("text")
-        .text(function(d) {
-            return d.id;
-        })
-        .attr('x', 6)
-        .attr('y', 3);
 
     node.append("title")
         .text(function(d) { return d.id; });
