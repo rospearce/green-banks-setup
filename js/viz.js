@@ -63,7 +63,7 @@ function makeChart () {
             })
             .attr("class", "label")
             .attr('x', 0)
-            .attr('y', -10);
+            .attr('y', -5);
     
         label2 = node.append("text")
             .text(function(d) {
@@ -71,7 +71,7 @@ function makeChart () {
             })
             .attr("class", "label")
             .attr('x', 0)
-            .attr('y', 10);
+            .attr('y', 15);
     
         
         function ticked() {
@@ -148,9 +148,9 @@ function restart() {
         .attr('x', 0)
         .attr('y', function(d) {
             if(d.label2 !== "") {
-                return -10;
+                return -5;
             } else {
-                return 0;
+                return 5;
             }
         });
 
@@ -158,7 +158,7 @@ function restart() {
         node.append("text").text(function (d) { return d.label2;})
         .attr("class", "label")
         .attr('x', 0)
-        .attr('y', 10);
+        .attr('y', 15);
 
         // update circle colour
         node.selectAll("circle")
