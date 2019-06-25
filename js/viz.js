@@ -78,23 +78,28 @@ d3.json("./data/data1.json", function(error, graph) {
 
         node
             .attr("transform", function(d) {
-            return "translate(" + d.x + "," + d.y + ")";
+                if (d.id !== 5) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                } else {
+                    return "translate(" + height/2 + "," + width/2 + ")";
+                }
+            
             })
     }
     });
 
-    function dragstarted(d) {
+function dragstarted(d) {
     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
     d.fx = d.x;
     d.fy = d.y;
-    }
+}
 
-    function dragged(d) {
+function dragged(d) {
     d.fx = d3.event.x;
     d.fy = d3.event.y;
-    }
+}
 
-    function dragended(d) {
+function dragended(d) {
     if (!d3.event.active) simulation.alphaTarget(0);
     d.fx = null;
     d.fy = null;
@@ -113,7 +118,8 @@ function restart() {
         node = node.data(graph.nodes);
         node.exit().remove();
         node = node.enter()
-        .append("circle").attr("fill", function(d) { return color(d.id); })
+        .append("circle")
+        .attr("fill", function(d) { return color(d.id); })
         .merge(node);
 
         // Apply the general update pattern to the links.
@@ -135,14 +141,6 @@ function restart() {
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', 10);
-
-        // Apply the general update pattern to the labels.
-        // label1 = label1.data(graph.nodes, function(d) { return d.label1;});
-        // label1.exit().remove();
-        // label1 = label1.enter().append("text").text(function(d) {
-        //     return d.label1;
-        // }).merge(label1);
-        // node.append(label1);
 
         // Update and restart the simulation.
         simulation.nodes(graph.nodes);
