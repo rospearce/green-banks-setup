@@ -193,15 +193,25 @@ function restart() {
 }
 
 function forward () {
-    console.log("forward");
 
-    if (step < 6) {
+    $("#backButton").css("visibility", "visible");
+    $("#forwardButton").css("visibility", "visible");
+
+    if (step < 5) {
+
         step++;
         console.log(step);
         //$("#viz").children().animate({opacity: 0}, 500);
         setTimeout(function() {
             restart();
         }, 1000);
+
+        $("#step").text(step);
+
+        if (step == 5) {
+            $("#forwardButton").css("visibility", "hidden");
+        }
+
     } else {
         // do nothing
     }
@@ -210,15 +220,24 @@ function forward () {
 
 function backwards () {
 
-    console.log("backwards");
+    $("#backButton").css("visibility", "visible");
+    $("#forwardButton").css("visibility", "visible");
 
     if (step > 1) {
+
         step--;
         console.log(step);
         //$("#viz").children().animate({opacity: 0}, 500);
         setTimeout(function() {
             restart();
         }, 1000);
+
+        $("#step").text(step);
+
+        if (step == 1) {
+            $("#backButton").css("visibility", "hidden");
+        }
+
     } else {
         // do nothing
     }
