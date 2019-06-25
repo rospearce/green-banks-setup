@@ -146,7 +146,13 @@ function restart() {
         })
         .attr("class", "label")
         .attr('x', 0)
-        .attr('y', -10);
+        .attr('y', function(d) {
+            if(d.label2 !== "") {
+                return -10;
+            } else {
+                return 0;
+            }
+        });
 
         // update text
         node.append("text").text(function (d) { return d.label2;})
