@@ -1,7 +1,7 @@
 const svg = d3.select("svg"),
     width = +svg.style('width').slice(0, -2),
     height = +svg.style("height").slice(0, -2);
-    colors = ["#43cfef", "#ced1cc", "#a45edb", "#cc9b7a", "#dd54b6"];
+    colors = ["rgb(67,207,239)", "rgb(206,209,204)", "rgb(164,94,219)", "rgb(204,155,122)", "rgb(221,84,182)"];
 
 console.log(width);
 console.log(height);
@@ -21,7 +21,7 @@ let link;
 let circles;
 let label1;
 let label2;
-let step = 1;
+let stepper = 1;
 
 function makeChart () {
 
@@ -44,13 +44,16 @@ function makeChart () {
             
         circles = node.append("circle")
             .attr("r", 40)
-            .attr("fill", function(d) {
+            .style("fill", function(d) {
                 if (d.id !== "5") {
-                    return colors[(step - 1)]; 
+                    return colors[(stepper - 1)]; 
                 } else {
                     return "white";
                 }
             })
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout)
+            .on("mouseclick", mouseclick)
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
@@ -86,11 +89,7 @@ function makeChart () {
                 .attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });
-    
-            // setTimeout(function(){ 
-            //     graph.nodes[0].fx = width / 2;
-            //     graph.nodes[0].fy = height / 2;; 
-            // }, 1000);
+
         }
     
         simulation.nodes(graph.nodes)
@@ -121,9 +120,37 @@ function dragended(d) {
     d.fy = null;
 }
 
+function mouseover(d) {
+    console.log(stepper);
+    console.log(d.id);
+    if (d.id !== "5") {
+        // console.log(d3.rgb(colors[(stepper - 1)]));
+        // console.log(d3.rgb(colors[(stepper - 1)]).darker(1));
+        d3.select(this).style("fill", function(){return d3.rgb(colors[(stepper - 1)]).darker(1);});
+    } else {
+
+    }
+}
+
+function mouseout(d) {
+    if (d.id !== 5) {
+
+    } else {
+        
+    }
+}
+
+function mouseclick(d) {
+    if (d.id !== 5) {
+
+    } else {
+        
+    }
+}
+
 function restart() {
 
-    d3.json("./data/data" + step + ".json", function(error, graph) {
+    d3.json("./data/data" + stepper + ".json", function(error, graph) {
         if (error) throw error;
 
         // UPDATE UI
@@ -167,13 +194,20 @@ function restart() {
 
         // UPDATE CIRCLES
         node.selectAll("circle")
-        .attr("fill", function(d) {
+        .style("fill", function(d) {
             if (d.id !== "5") {
-                return colors[(step - 1)]; 
+                return colors[(stepper - 1)]; 
             } else {
                 return "white";
             }
-        });
+        })
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .on("mouseclick", mouseclick)
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
 
         // RESTART SIMULATION
         function ticked() {
@@ -203,9 +237,9 @@ function forward () {
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
-    if (step < 5) {
+    if (stepper < 5) {
 
-        step++;
+        stepper++;
 
         $("#viz").children().fadeOut("slow", function() {
             setTimeout(function() {
@@ -217,9 +251,9 @@ function forward () {
             restart();
         }, 500);
 
-        $("#step").text(step);
+        $("#step").text(stepper);
 
-        if (step == 5) {
+        if (stepper == 5) {
             $("#forwardButton").css("visibility", "hidden");
         }
 
@@ -234,9 +268,9 @@ function backwards () {
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
-    if (step > 1) {
+    if (stepper > 1) {
 
-        step--;
+        stepper--;
 
         $("#viz").children().fadeOut("slow", function() {
             setTimeout(function() {
@@ -248,9 +282,9 @@ function backwards () {
             restart();
         }, 500);
 
-        $("#step").text(step);
+        $("#step").text(stepper);
 
-        if (step == 1) {
+        if (stepper == 1) {
             $("#backButton").css("visibility", "hidden");
         }
 
@@ -259,8 +293,3 @@ function backwards () {
     }
 
 }
-
-// setTimeout(function(){ 
-//     step = 2;
-//     restart(); 
-// }, 4000);
