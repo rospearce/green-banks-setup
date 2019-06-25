@@ -125,20 +125,26 @@ function restart() {
 
     d3.json("./data/data" + step + ".json", function(error, graph) {
         if (error) throw error;
+
+        // UPDATE UI
+        d3.select("#stage").text(function(d) {
+            return graph.nodes[4].name;
+        });
         
-        // Apply the general update pattern to the nodes.
+        // GENERAL UPDATE PATTERN
+        // apply to nodes and links
         node = node.data(graph.nodes);
         node.exit().remove();
         node = node.enter()
         .append("circle")
         .merge(node);
 
-        // Apply the general update pattern to the links.
         link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
         link.exit().remove();
         link = link.enter().append("line").attr("stroke-width", function(d) { return d.value; })
         .attr("stroke", "gray").merge(link);
 
+        // UPDATE TEXT
         node.selectAll("text").remove();
 
         node.append("text").text(function (d) {
@@ -154,13 +160,12 @@ function restart() {
             }
         });
 
-        // update text
         node.append("text").text(function (d) { return d.label2;})
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', 15);
 
-        // update circle colour
+        // UPDATE CIRCLES
         node.selectAll("circle")
         .attr("fill", function(d) {
             if (d.id !== "5") {
@@ -170,6 +175,7 @@ function restart() {
             }
         });
 
+        // RESTART SIMULATION
         function ticked() {
     
             link
@@ -184,9 +190,9 @@ function restart() {
                 });
         }
 
-        // Update and restart the simulation.
         simulation.nodes(graph.nodes).on("tick", ticked);
         simulation.force("link").links(graph.links);
+        // nb need alpha 1 or else just reset the clock
         simulation.alpha(1).restart();
 
     });
