@@ -25,12 +25,7 @@ let step = 1;
 
 function makeChart () {
 
-    // remove old chart before creating new
-    svg.selectAll("*").remove();
-    nodes = [];
-    links = [];
-
-    d3.json("./data/data" + step + ".json", function(error, graph) {
+    d3.json("./data/data1.json", function(error, graph) {
         if (error) throw error;
     
         link = svg.append("g")
@@ -130,8 +125,6 @@ function restart() {
 
     d3.json("./data/data" + step + ".json", function(error, graph) {
         if (error) throw error;
-
-        console.log(step);
         
         // Apply the general update pattern to the nodes.
         node = node.data(graph.nodes);
@@ -188,7 +181,7 @@ function restart() {
         // Update and restart the simulation.
         simulation.nodes(graph.nodes).on("tick", ticked);
         simulation.force("link").links(graph.links);
-        simulation.restart();
+        simulation.alpha(1).restart();
 
     });
 }
@@ -199,9 +192,9 @@ function forward () {
     if (step < 6) {
         step++;
         console.log(step);
-        $("#viz").children().animate({opacity: 0}, 500);
+        //$("#viz").children().animate({opacity: 0}, 500);
         setTimeout(function() {
-            makeChart(step);
+            restart();
         }, 1000);
     } else {
         // do nothing
@@ -216,9 +209,9 @@ function backwards () {
     if (step > 1) {
         step--;
         console.log(step);
-        $("#viz").children().animate({opacity: 0}, 500);
+        //$("#viz").children().animate({opacity: 0}, 500);
         setTimeout(function() {
-            makeChart(step);
+            restart();
         }, 1000);
     } else {
         // do nothing
