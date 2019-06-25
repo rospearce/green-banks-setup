@@ -121,11 +121,7 @@ function dragended(d) {
 }
 
 function mouseover(d) {
-    console.log(stepper);
-    console.log(d.id);
     if (d.id !== "5") {
-        // console.log(d3.rgb(colors[(stepper - 1)]));
-        // console.log(d3.rgb(colors[(stepper - 1)]).darker(1));
         d3.select(this).style("fill", function(){return d3.rgb(colors[(stepper - 1)]).darker(1);});
     } else {
 
@@ -133,8 +129,8 @@ function mouseover(d) {
 }
 
 function mouseout(d) {
-    if (d.id !== 5) {
-
+    if (d.id !== "5") {
+        d3.select(this).style("fill", function(){return colors[(stepper - 1)]});
     } else {
         
     }
