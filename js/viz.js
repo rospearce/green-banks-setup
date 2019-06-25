@@ -206,11 +206,16 @@ function forward () {
     if (step < 5) {
 
         step++;
-        console.log(step);
-        //$("#viz").children().animate({opacity: 0}, 500);
+
+        $("#viz").children().fadeOut("slow", function() {
+            setTimeout(function() {
+                $("#viz").children().fadeIn("slow");
+            }, 400);
+        });
+
         setTimeout(function() {
             restart();
-        }, 1000);
+        }, 500);
 
         $("#step").text(step);
 
@@ -232,11 +237,16 @@ function backwards () {
     if (step > 1) {
 
         step--;
-        console.log(step);
-        //$("#viz").children().animate({opacity: 0}, 500);
+
+        $("#viz").children().fadeOut("slow", function() {
+            setTimeout(function() {
+                $("#viz").children().fadeIn("slow");
+            }, 400);
+        });
+
         setTimeout(function() {
             restart();
-        }, 1000);
+        }, 500);
 
         $("#step").text(step);
 
