@@ -7,7 +7,9 @@ console.log(width);
 console.log(height);
 
 var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("link", 
+        d3.forceLink().distance(100).id(function(d) { return d.id; })
+    )
     .force('charge', d3.forceManyBody()
         .strength(-2200)
         .theta(0.8)
@@ -69,13 +71,11 @@ d3.json("./data/data1.json", function(error, graph) {
         .attr('x', 0)
         .attr('y', 10);
 
-    simulation.nodes(graph.nodes)
-        .on("tick", ticked);
-
-    simulation.force("link")
-        .links(graph.links);
-
+    
     function ticked() {
+
+        
+
         link
             .attr("x1", function(d) { return d.source.x; })
             .attr("y1", function(d) { return d.source.y; })
@@ -86,7 +86,19 @@ d3.json("./data/data1.json", function(error, graph) {
             .attr("transform", function(d) {
                 return "translate(" + d.x + "," + d.y + ")";
             });
+
+        // setTimeout(function(){ 
+        //     graph.nodes[0].fx = width / 2;
+        //     graph.nodes[0].fy = height / 2;; 
+        // }, 1000);
     }
+
+    simulation.nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links);
+
 });
 
 function dragstarted(d) {
@@ -123,7 +135,8 @@ function restart() {
         // Apply the general update pattern to the links.
         link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
         link.exit().remove();
-        link = link.enter().append("line").merge(link);
+        link = link.enter().append("line").attr("stroke-width", function(d) { return d.value; })
+        .attr("stroke", "gray").merge(link);
 
         node.selectAll("text").remove();
 
@@ -150,9 +163,22 @@ function restart() {
             }
         });
 
+        function ticked() {
+    
+            link
+                .attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+    
+            node
+                .attr("transform", function(d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                });
+        }
 
         // Update and restart the simulation.
-        simulation.nodes(graph.nodes);
+        simulation.nodes(graph.nodes).on("tick", ticked);
         simulation.force("link").links(graph.links);
         simulation.restart();
 
