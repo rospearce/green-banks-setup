@@ -38,6 +38,7 @@
             "label1": "Case",
             "label2": "making",
             "text": "<p>The casemaking phase is about the reasoning/ justification for a different policy or instrument. It provides direction of what the future institution or reform could deliver if implemented. The proposal needs to demonstrate that it is aligned with the strategic goal of the country.</p>",
+            "output": "<p><i class='fas fa-check-circle'></i> Mapping of the current financial landscape.</p><p><i class='fas fa-check-circle'></i> Low carbon agenda including targets.</p><p><i class='fas fa-check-circle'></i> Total infrastructure financing requirement, green requirements by sector.</p><p><i class='fas fa-check-circle'></i> Determine the missing markets.</p><p><i class='fas fa-check-circle'></i> The objective of the GIB  and proposal for its functions, based on the finance strategy (above points) and market barriers.</p><p><i class='fas fa-check-circle'></i> Market testing (finance, government, NGOs, political parties).</p>",
             "group": 2
         }
     ],

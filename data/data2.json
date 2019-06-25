@@ -38,6 +38,7 @@
             "label1": "Design",
             "label2": "",
             "text": "<p>The design phase starts once there is a buy-in that the current approach is insufficient for delivering the low carbon transition at the scale and speed required, and the policy makers agreed in principle to carry the idea forward. Here the institution goes from being a proposal to a concrete concept.</p>",
+            "output": "<p><i class='fas fa-check-circle'></i> Establish the vision, governance and business model.</p><p><i class='fas fa-check-circle'></i> Determine how much green funding would be delivered within the existing policy framework.</p><p><i class='fas fa-check-circle'></i> The significance of the market barriers.</p><p><i class='fas fa-check-circle'></i> Objectives and roles of the GIB, scope of operations.</p><p><i class='fas fa-check-circle'></i> The funding structure of the GIB (capitalization and leverage/borrowing powers).</p><p><i class='fas fa-check-circle'></i> Timetable for the establishment of the GIB.</p><p><i class='fas fa-check-circle'></i> Decide whether new legislation is needed.</p><p><i class='fas fa-check-circle'></i> Rationale for reform versus a new institution.</p>",
             "group": 2
         }
     ],
