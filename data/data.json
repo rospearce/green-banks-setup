@@ -31,12 +31,24 @@
             "label2": "frameworks",
             "text": "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops! We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!",
             "group": 1
+        },
+        {
+            "id": "5", 
+            "name": "Case making",
+            "label1": "Case",
+            "label2": "making",
+            "text": "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops! We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!",
+            "group": 2
         }
     ],
     "links": [
         {"source": "1", "target": "2", "value": 1},
         {"source": "2", "target": "3", "value": 1},
         {"source": "3", "target": "4", "value": 1},
-        {"source": "4", "target": "1", "value": 1}
+        {"source": "4", "target": "1", "value": 1},
+        {"source": "5", "target": "1", "value": 2},
+        {"source": "5", "target": "2", "value": 2},
+        {"source": "5", "target": "3", "value": 2},
+        {"source": "5", "target": "4", "value": 2}
     ]
 }
