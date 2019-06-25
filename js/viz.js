@@ -22,6 +22,7 @@ let circles;
 let label1;
 let label2;
 let stepper = 1;
+let varState = 1;
 
 function makeChart () {
 
@@ -144,6 +145,7 @@ function restart() {
         if (error) throw error;
 
         // UPDATE UI
+
         d3.select("#stage").text(function(d) {
             return graph.nodes[4].name;
         });
@@ -151,6 +153,7 @@ function restart() {
         d3.select("#description").html(function(d) {
             return graph.nodes[4].text;
         });
+
         
         // GENERAL UPDATE PATTERN
         // apply to nodes and links
@@ -231,29 +234,51 @@ function forward () {
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
-    if (stepper < 5) {
+    if (varState == 0) {
 
-        stepper++;
+        if (stepper < 5) {
 
-        $("#viz").children().fadeOut("slow", function() {
+            stepper++;
+    
+            $("#viz").children().fadeOut("slow", function() {
+                setTimeout(function() {
+                    $("#viz").children().fadeIn("slow");
+                }, 400);
+            });
+    
             setTimeout(function() {
-                $("#viz").children().fadeIn("slow");
-            }, 400);
-        });
-
-        setTimeout(function() {
-            restart();
-        }, 500);
-
-        $("#step").text(stepper);
-
-        if (stepper == 5) {
-            $("#forwardButton").css("visibility", "hidden");
+                restart(varState);
+            }, 500);
+    
+            $("#step").text(stepper);
+    
+            if (stepper == 5) {
+                $("#forwardButton").css("visibility", "hidden");
+            }
+    
         }
 
+        varState = 1;
+
     } else {
-        // do nothing
+
+        // update UI but don't update chart
+        d3.json("./data/data" + stepper + ".json", function(error, graph) {
+
+            if (error) throw error;
+
+            d3.select("#stage").text("Output");
+
+            d3.select("#description").html(function(d) {
+                return graph.nodes[4].output;
+            });
+        });
+
+        varState = 0;
+
     }
+
+    
 
 }
 
@@ -283,7 +308,12 @@ function backwards () {
         }
 
     } else {
-        // do nothing
+
+        d3.select("#stage").text("Output");
+
+        d3.select("#description").html(function(d) {
+            return graph.nodes[4].output;
+        });
     }
 
 }
