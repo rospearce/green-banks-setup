@@ -1,7 +1,7 @@
 const svg = d3.select("svg"),
     width = +svg.style('width').slice(0, -2),
     height = +svg.style("height").slice(0, -2);
-    color = d3.scaleOrdinal(d3.schemeCategory10);
+    colors = ["#43cfef", "#ced1cc", "#a45edb", "#cc9b7a", "#dd54b6"];
 
 console.log(width);
 console.log(height);
@@ -9,17 +9,17 @@ console.log(height);
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force('charge', d3.forceManyBody()
-        .strength(-2000)
+        .strength(-2200)
         .theta(0.8)
-        // .distanceMax(400)
     )
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-var node;
-var link;
-var circles;
-var label1;
-var label2;
+let node;
+let link;
+let circles;
+let label1;
+let label2;
+let step = 1;
 
 d3.json("./data/data1.json", function(error, graph) {
     if (error) throw error;
@@ -40,7 +40,13 @@ d3.json("./data/data1.json", function(error, graph) {
         
     circles = node.append("circle")
         .attr("r", 40)
-        .attr("fill", function(d) { return color(d.group); })
+        .attr("fill", function(d) {
+            if (d.id !== "5") {
+                return colors[(step - 1)]; 
+            } else {
+                return "white";
+            }
+        })
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -78,15 +84,10 @@ d3.json("./data/data1.json", function(error, graph) {
 
         node
             .attr("transform", function(d) {
-                if (d.id !== 5) {
-                    return "translate(" + d.x + "," + d.y + ")";
-                } else {
-                    return "translate(" + height/2 + "," + width/2 + ")";
-                }
-            
-            })
+                return "translate(" + d.x + "," + d.y + ")";
+            });
     }
-    });
+});
 
 function dragstarted(d) {
     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -105,8 +106,6 @@ function dragended(d) {
     d.fy = null;
 }
 
-let step = 2;
-
 function restart() {
 
     d3.json("./data/data" + step + ".json", function(error, graph) {
@@ -119,7 +118,6 @@ function restart() {
         node.exit().remove();
         node = node.enter()
         .append("circle")
-        .attr("fill", function(d) { return color(d.id); })
         .merge(node);
 
         // Apply the general update pattern to the links.
@@ -130,17 +128,28 @@ function restart() {
         node.selectAll("text").remove();
 
         node.append("text").text(function (d) {
-            console.log(d.label1);
             return d.label1;
         })
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', -10);
 
+        // update text
         node.append("text").text(function (d) { return d.label2;})
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', 10);
+
+        // update circle colour
+        node.selectAll("circle")
+        .attr("fill", function(d) {
+            if (d.id !== "5") {
+                return colors[(step - 1)]; 
+            } else {
+                return "white";
+            }
+        });
+
 
         // Update and restart the simulation.
         simulation.nodes(graph.nodes);
@@ -150,4 +159,7 @@ function restart() {
     });
 }
 
-setTimeout(function(){ restart(step); }, 2000);
+setTimeout(function(){ 
+    step = 2;
+    restart(); 
+}, 4000);
