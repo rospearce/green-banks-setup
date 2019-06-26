@@ -75,3 +75,7 @@ body {
 #backButton {
     visibility: hidden;
 }
+
+line {
+    opacity: 0.8;
+}

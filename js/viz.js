@@ -1,7 +1,37 @@
-const svg = d3.select("#viz"),
-    width = +svg.style('width').slice(0, -2),
-    height = +svg.style("height").slice(0, -2);
+function updateSize () {
+    
+    let networkWidth = $("#network").width();
+    let networkHeight = $("#network").height();
+
+    $("#background").width(networkWidth);
+    $("#background").height(networkHeight);
+
+    $("#flow-wrapper").width(networkWidth*5);
+
+    let flowHeight = $("#flow-wrapper").height();
+    $("#flow-wrapper").css("margin-top", function () {
+        return (networkHeight - flowHeight)/2;
+    });
+
+    $("#viz-wrapper").height(networkWidth);
+
+    $("#viz-wrapper").css("margin-top", function () {
+        return (networkHeight - networkWidth)/2;
+    });
+
+}
+
+updateSize();
+
+const width = 600;
+    height = 600;
     colors = ["rgb(64,69,130)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
+    svg = d3.select("#viz-wrapper").append("svg")
+    .attr("id", "viz")
+    .attr("viewBox", "0 0 600 600")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .append("g");
+    // .attr("transform", "translate(" + r + "," + r +") rotate(180) scale(-1, -1)");
 
 var simulation = d3.forceSimulation()
     .force("link", 
@@ -32,7 +62,9 @@ function makeChart () {
             .data(graph.links)
             .enter().append("line")
             .attr("stroke-width", function(d) { return d.value; })
-            .attr("stroke", "gray");
+            .attr("stroke", function(d) {
+                return d3.rgb(colors[(stepper - 1)]).darker(0.5);
+            });
     
         node = svg.append("g")
             .attr("class", "nodes")
@@ -41,7 +73,13 @@ function makeChart () {
             .enter().append("g");
             
         circles = node.append("circle")
-            .attr("r", 40)
+            .attr("r", function(d) {
+                if (d.id !== "5") {
+                    return 40; 
+                } else {
+                    return 55;
+                }
+            })
             .style("fill", function(d) {
                 if (d.id !== "5") {
                     return colors[(stepper - 1)]; 
@@ -197,7 +235,9 @@ function restart() {
         link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
         link.exit().remove();
         link = link.enter().append("line").attr("stroke-width", function(d) { return d.value; })
-        .attr("stroke", "gray").merge(link);
+        .attr("stroke", function(d) {
+            return d3.rgb(colors[(stepper - 1)]).darker(0.5);
+        }).merge(link);
 
         // UPDATE TEXT
         node.selectAll("text").remove();
@@ -296,29 +336,7 @@ function forward () {
     
             $("#step").text(stepper);
 
-            console.log(stepper);
-
-            // switch(stepper) {
-            //     case 2:
-            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
-            //         break;
-            //     case 3:
-            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
-            //         break;
-            //     case 4:
-            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
-            //         break;
-            //     case 5:
-            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
-            //         break;
-            // };
-
-            console.log(width);
-
-            
-
-            // $("#flow-wrapper").css('left', function(){ return $(this).offset().left; })
-            // .animate({"left":"-100px"}, "slow");    
+            console.log(stepper);   
     
         }
 
@@ -409,19 +427,3 @@ function backwards () {
     };
 
 }
-
-function updateSize () {
-
-    $("#background").width(width);
-    $("#background").height(height);
-
-    $("#flow-wrapper").width(width*5);
-
-    let flowHeight = $("#flow-wrapper").height();
-    $("#flow-wrapper").css("margin-top", function () {
-        return (height - flowHeight)/2;
-    });
-
-}
-
-updateSize();
