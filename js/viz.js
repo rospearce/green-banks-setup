@@ -1,7 +1,7 @@
 const svg = d3.select("svg"),
     width = +svg.style('width').slice(0, -2),
     height = +svg.style("height").slice(0, -2);
-    colors = ["rgb(67,207,239)", "rgb(206,209,204)", "rgb(164,94,219)", "rgb(204,155,122)", "rgb(221,84,182)"];
+    colors = ["rgb(55,58,124)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
 
 var simulation = d3.forceSimulation()
     .force("link", 
