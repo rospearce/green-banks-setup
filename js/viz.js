@@ -155,8 +155,6 @@ function mouseclick(d) {
 
 function restart() {
 
-    console.log(varState);
-
     d3.json("./data/data" + stepper + ".json", function(error, graph) {
         if (error) throw error;
 
@@ -179,6 +177,8 @@ function restart() {
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].output;
             });
+
+            d3.select("#questions").selectAll("*").remove();
 
         }
         
@@ -305,6 +305,9 @@ function forward () {
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].output;
             });
+
+            // remove all children
+            d3.select("#questions").selectAll("*").remove();
         });
 
         if (stepper == 5) {
