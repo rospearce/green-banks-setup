@@ -1,4 +1,4 @@
-const svg = d3.select("svg"),
+const svg = d3.select("#viz"),
     width = +svg.style('width').slice(0, -2),
     height = +svg.style("height").slice(0, -2);
     colors = ["rgb(64,69,130)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
@@ -280,6 +280,8 @@ function forward () {
 
         if (stepper < 5) {
 
+            $("#flow-wrapper").animate({"left": "-" + (width*stepper) + "px"}, "slow");
+
             stepper++;
     
             $("#viz").children().fadeOut("slow", function() {
@@ -296,20 +298,27 @@ function forward () {
 
             console.log(stepper);
 
-            switch(stepper) {
-                case 2:
-                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
-                    break;
-                case 3:
-                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
-                    break;
-                case 4:
-                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
-                    break;
-                case 5:
-                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
-                    break;
-            };
+            // switch(stepper) {
+            //     case 2:
+            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
+            //         break;
+            //     case 3:
+            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
+            //         break;
+            //     case 4:
+            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
+            //         break;
+            //     case 5:
+            //         $("#network").animate({"background-position-x": "-=100%"}, "slow");
+            //         break;
+            // };
+
+            console.log(width);
+
+            
+
+            // $("#flow-wrapper").css('left', function(){ return $(this).offset().left; })
+            // .animate({"left":"-100px"}, "slow");    
     
         }
 
@@ -350,8 +359,6 @@ function backwards () {
             break;
     };
 
-    console.log(varState);
-
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
@@ -380,6 +387,10 @@ function backwards () {
         if (stepper > 1) {
 
             stepper--;
+
+            console.log(stepper);
+
+            $("#flow-wrapper").animate({"left": "-" + (width*(stepper-1)) + "px"}, "slow");
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
@@ -393,22 +404,24 @@ function backwards () {
     
             $("#step").text(stepper);
 
-            switch(stepper) {
-                case 1:
-                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
-                    break;
-                case 2:
-                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
-                    break;
-                case 3:
-                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
-                    break;
-                case 4:
-                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
-                    break;
-            };
         }
 
     };
 
 }
+
+function updateSize () {
+
+    $("#background").width(width);
+    $("#background").height(height);
+
+    $("#flow-wrapper").width(width*5);
+
+    let flowHeight = $("#flow-wrapper").height();
+    $("#flow-wrapper").css("margin-top", function () {
+        return (height - flowHeight)/2;
+    });
+
+}
+
+updateSize();

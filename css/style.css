@@ -45,11 +45,18 @@ body {
     margin: 15px;
 }
 
-#network {
+#background {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
     background-color: #ddece4;
-    background: url(../img/flow.svg);
-    background-size: 500%;
-    background-position: 0%, 50%;
+    z-index: -1;
+}
+
+#flow-wrapper {
+    position: relative;
+    left: 0px;
 }
 
 #stage {
