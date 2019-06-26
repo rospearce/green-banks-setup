@@ -272,7 +272,6 @@ function forward () {
             break;
     };
 
-    console.log(varState);
 
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
@@ -294,6 +293,23 @@ function forward () {
             }, 500);
     
             $("#step").text(stepper);
+
+            console.log(stepper);
+
+            switch(stepper) {
+                case 2:
+                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
+                    break;
+                case 3:
+                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
+                    break;
+                case 4:
+                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
+                    break;
+                case 5:
+                    $("#network").animate({"background-position-x": "-=100%"}, "slow");
+                    break;
+            };
     
         }
 
@@ -376,6 +392,21 @@ function backwards () {
             }, 500);
     
             $("#step").text(stepper);
+
+            switch(stepper) {
+                case 1:
+                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
+                    break;
+                case 2:
+                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
+                    break;
+                case 3:
+                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
+                    break;
+                case 4:
+                    $("#network").animate({"background-position-x": "+=100%"}, "slow");
+                    break;
+            };
         }
 
     };

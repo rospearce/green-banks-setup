@@ -41,8 +41,15 @@ body {
     height: 100%;
 }
 
+#text {
+    margin: 15px;
+}
+
 #network {
     background-color: #ddece4;
+    background: url(../img/flow.svg);
+    background-size: 500%;
+    background-position: 0%, 50%;
 }
 
 #stage {
