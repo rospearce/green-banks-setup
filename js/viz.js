@@ -409,9 +409,15 @@ function forward () {
 
             stepper++;
 
-            let color1 = (colors[(stepper-1)]).slice(4, -1);
-            let color2 = (colors[stepper]).slice(4, -1);
-            $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55))"});
+            let color1 = (colors[(stepper-2)]).slice(4, -1);
+            let color2 = (colors[(stepper-1)]).slice(4, -1);
+            let color3 = (colors[stepper]).slice(4, -1);
+
+            if (stepper < 5) {
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+            } else {
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+            }
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
@@ -497,7 +503,12 @@ function backwards () {
 
             let color1 = (colors[(stepper-1)]).slice(4, -1);
             let color2 = (colors[stepper]).slice(4, -1);
-            $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55))"});
+
+            if (stepper > 1) {
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+            } else {
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55))"});
+            }
 
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
     
