@@ -78,9 +78,9 @@ function makeChart () {
         circles = node.append("circle")
             .attr("r", function(d) {
                 if (d.id !== "5") {
-                    return 40; 
+                    return 45; 
                 } else {
-                    return 55;
+                    return 60;
                 }
             })
             .style("fill", function(d) {
@@ -104,7 +104,18 @@ function makeChart () {
                 return d.label1;
             })
             .style("fill", function(d) {
-                return colors[(stepper - 1)]; 
+                if (d.id !== "5") {
+                    return "white"; 
+                } else {
+                    return colors[(stepper - 1)]; 
+                }
+            })
+            .style("font-size", function(d) {
+                if (d.id !== "5") {
+                    return "14px"; 
+                } else {
+                    return "20px";
+                }
             })
             .attr("class", "label")
             .attr('x', 0)
@@ -115,7 +126,18 @@ function makeChart () {
                 return d.label2;
             })
             .style("fill", function(d) {
-                return colors[(stepper - 1)]; 
+                if (d.id !== "5") {
+                    return "white"; 
+                } else {
+                    return colors[(stepper - 1)]; 
+                }
+            })
+            .style("font-size", function(d) {
+                if (d.id !== "5") {
+                    return "14px"; 
+                } else {
+                    return "20px";
+                }
             })
             .attr("class", "label")
             .attr('x', 0)
@@ -256,7 +278,11 @@ function restart() {
         })
         .attr("class", "label")
         .style("fill", function(d) {
-            return colors[(stepper - 1)]; 
+            if (d.id !== "5") {
+                return "white"; 
+            } else {
+                return colors[(stepper - 1)]; 
+            } 
         })
         .attr('x', 0)
         .attr('y', function(d) {
@@ -269,7 +295,11 @@ function restart() {
 
         node.append("text").text(function (d) { return d.label2;})
         .style("fill", function(d) {
-            return colors[(stepper - 1)]; 
+            if (d.id !== "5") {
+                return "white"; 
+            } else {
+                return colors[(stepper - 1)]; 
+            } 
         })
         .attr("class", "label")
         .attr('x', 0)
