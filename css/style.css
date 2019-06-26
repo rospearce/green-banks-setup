@@ -45,7 +45,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #ddece4;
+    background: linear-gradient(to right, rgba(56, 138, 142, 0.45), rgba(92, 170, 72, 0.45));
     z-index: -1;
 }
 
@@ -56,7 +56,7 @@ body {
 
 #stage {
     color: white;
-    background-color: #373A7C;
+    background-color: #4B5287;
     padding: 3px;
     padding-left: 6px;
     padding-right: 6px;

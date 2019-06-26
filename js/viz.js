@@ -28,7 +28,7 @@ updateSize();
 
 const width = 600;
     height = 600;
-    colors = ["rgb(64,69,130)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
+    colors = ["rgb(75,82,135)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
     svg = d3.select("#viz-wrapper").append("svg")
     .attr("id", "viz")
     .attr("viewBox", "0 0 600 600")
@@ -112,9 +112,9 @@ function makeChart () {
             })
             .style("font-size", function(d) {
                 if (d.id !== "5") {
-                    return "14px"; 
+                    return "15px"; 
                 } else {
-                    return "20px";
+                    return "19px";
                 }
             })
             .attr("class", "label")
@@ -132,11 +132,18 @@ function makeChart () {
                     return colors[(stepper - 1)]; 
                 }
             })
+            .attr("dy", function(d) {
+                if (d.id !== "5") {
+                    return "1px"; 
+                } else {
+                    return "4px";
+                }
+            })
             .style("font-size", function(d) {
                 if (d.id !== "5") {
-                    return "14px"; 
+                    return "15px"; 
                 } else {
-                    return "20px";
+                    return "19px";
                 }
             })
             .attr("class", "label")
@@ -284,6 +291,25 @@ function restart() {
                 return colors[(stepper - 1)]; 
             } 
         })
+        .style("font-size", function(d) {
+            if (d.id !== "5") {
+                return "15px"; 
+            } else {
+                switch(stepper) {
+                    case 1:
+                        return "19px";
+                    case 2:
+                        return  "22px";
+                    case 3:
+                        return  "16px";
+                    case 4:
+                        return  "18px";
+                    case 5:
+                        return  "22px";
+                }
+                
+            }
+        })
         .attr('x', 0)
         .attr('y', function(d) {
             if(d.label2 !== "") {
@@ -300,6 +326,20 @@ function restart() {
             } else {
                 return colors[(stepper - 1)]; 
             } 
+        })
+        .attr("dy", function(d) {
+            if (d.id !== "5") {
+                return "1px"; 
+            } else {
+                return "4px";
+            }
+        })
+        .style("font-size", function(d) {
+            if (d.id !== "5") {
+                return "15px"; 
+            } else {
+                return "19px";
+            }
         })
         .attr("class", "label")
         .attr('x', 0)
