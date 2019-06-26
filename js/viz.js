@@ -119,9 +119,18 @@ function dragended(d) {
 }
 
 function mouseover(d) {
-    if (d.id !== "5") {
-        d3.select(this).style("fill", function(){return d3.rgb(colors[(stepper - 1)]).darker(1);});
+    switch(varState) {
+        case 0:
+            if (d.id !== "5") {
+                d3.select(this).style("fill", function(){return d3.rgb(colors[(stepper - 1)]).darker(1);});
+                d3.select(this).style("cursor", "pointer");
+            };
+            break;
+        case 1:
+                d3.select(this).style("cursor", "default");
+            break;
     }
+
 }
 
 function mouseout(d) {
@@ -131,9 +140,17 @@ function mouseout(d) {
 }
 
 function mouseclick(d) {
-    if (d.id !== "5") {
-        d3.select("#questions").html(d.text);
+    switch(varState) {
+        case 0:
+            if (d.id !== "5") {
+                d3.select("#questions").html(d.text);
+            };
+            break;
+        case 1:
+            // no actions
+            break;
     }
+
 }
 
 function restart() {
