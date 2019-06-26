@@ -36,11 +36,6 @@ body {
     flex: 2 0 0;
 }
 
-#viz {
-    width: 100%;
-    height: 100%;
-}
-
 #text {
     margin: 15px;
 }
@@ -70,6 +65,7 @@ body {
 .label {
     text-anchor: middle;
     pointer-events: none;
+    font-weight: bold;
 }
 
 #backButton {

@@ -1,7 +1,10 @@
+let networkWidth;
+let netwrkHeight;
+
 function updateSize () {
     
-    let networkWidth = $("#network").width();
-    let networkHeight = $("#network").height();
+    networkWidth = $("#network").width();
+    networkHeight = $("#network").height();
 
     $("#background").width(networkWidth);
     $("#background").height(networkHeight);
@@ -35,10 +38,10 @@ const width = 600;
 
 var simulation = d3.forceSimulation()
     .force("link", 
-        d3.forceLink().distance(100).id(function(d) { return d.id; })
+        d3.forceLink().distance(140).id(function(d) { return d.id; })
     )
     .force('charge', d3.forceManyBody()
-        .strength(-2200)
+        .strength(-2400)
         .theta(0.8)
     )
     .force("center", d3.forceCenter(width / 2, height / 2));
@@ -100,6 +103,9 @@ function makeChart () {
             .text(function(d) {
                 return d.label1;
             })
+            .style("fill", function(d) {
+                return colors[(stepper - 1)]; 
+            })
             .attr("class", "label")
             .attr('x', 0)
             .attr('y', -5);
@@ -107,6 +113,9 @@ function makeChart () {
         label2 = node.append("text")
             .text(function(d) {
                 return d.label2;
+            })
+            .style("fill", function(d) {
+                return colors[(stepper - 1)]; 
             })
             .attr("class", "label")
             .attr('x', 0)
@@ -246,6 +255,9 @@ function restart() {
             return d.label1;
         })
         .attr("class", "label")
+        .style("fill", function(d) {
+            return colors[(stepper - 1)]; 
+        })
         .attr('x', 0)
         .attr('y', function(d) {
             if(d.label2 !== "") {
@@ -256,6 +268,9 @@ function restart() {
         });
 
         node.append("text").text(function (d) { return d.label2;})
+        .style("fill", function(d) {
+            return colors[(stepper - 1)]; 
+        })
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', 15);
@@ -320,7 +335,7 @@ function forward () {
 
         if (stepper < 5) {
 
-            $("#flow-wrapper").animate({"left": "-" + (width*stepper) + "px"}, "slow");
+            $("#flow-wrapper").animate({"left": "-" + (networkWidth*stepper) + "px"}, "slow");
 
             stepper++;
     
@@ -408,7 +423,7 @@ function backwards () {
 
             console.log(stepper);
 
-            $("#flow-wrapper").animate({"left": "-" + (width*(stepper-1)) + "px"}, "slow");
+            $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
