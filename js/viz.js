@@ -3,9 +3,6 @@ const svg = d3.select("svg"),
     height = +svg.style("height").slice(0, -2);
     colors = ["rgb(67,207,239)", "rgb(206,209,204)", "rgb(164,94,219)", "rgb(204,155,122)", "rgb(221,84,182)"];
 
-console.log(width);
-console.log(height);
-
 var simulation = d3.forceSimulation()
     .force("link", 
         d3.forceLink().distance(100).id(function(d) { return d.id; })
@@ -22,7 +19,7 @@ let circles;
 let label1;
 let label2;
 let stepper = 1;
-let varState = 1;
+let varState = 0;
 
 function makeChart () {
 
@@ -141,19 +138,32 @@ function mouseclick(d) {
 
 function restart() {
 
+    console.log(varState);
+
     d3.json("./data/data" + stepper + ".json", function(error, graph) {
         if (error) throw error;
 
         // UPDATE UI
 
-        d3.select("#stage").text(function(d) {
-            return graph.nodes[4].name;
-        });
+        if (varState == 0) {
 
-        d3.select("#description").html(function(d) {
-            return graph.nodes[4].text;
-        });
+            d3.select("#stage").text(function(d) {
+                return graph.nodes[4].name;
+            });
+    
+            d3.select("#description").html(function(d) {
+                return graph.nodes[4].text;
+            });
 
+        } else {
+
+            d3.select("#stage").text("Output");
+
+            d3.select("#description").html(function(d) {
+                return graph.nodes[4].output;
+            });
+
+        }
         
         // GENERAL UPDATE PATTERN
         // apply to nodes and links
@@ -231,6 +241,18 @@ function restart() {
 
 function forward () {
 
+    switch (varState) {
+        case 0:
+            varState = 1;
+            break;
+    
+        case 1:
+            varState = 0;
+            break;
+    };
+
+    console.log(varState);
+
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
@@ -252,13 +274,7 @@ function forward () {
     
             $("#step").text(stepper);
     
-            if (stepper == 5) {
-                $("#forwardButton").css("visibility", "hidden");
-            }
-    
         }
-
-        varState = 1;
 
     } else {
 
@@ -274,34 +290,46 @@ function forward () {
             });
         });
 
-        varState = 0;
+        if (stepper == 5) {
+            $("#forwardButton").css("visibility", "hidden");
+        }
 
     }
-
-    
 
 }
 
 function backwards () {
 
+    switch (varState) {
+        case 0:
+            varState = 1;
+            break;
+    
+        case 1:
+            varState = 0;
+            break;
+    };
+
+    console.log(varState);
+
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
-    if (stepper > 1) {
+    if (varState == 0) {
 
-        stepper--;
+        // update UI but don't update chart
+        d3.json("./data/data" + stepper + ".json", function(error, graph) {
 
-        $("#viz").children().fadeOut("slow", function() {
-            setTimeout(function() {
-                $("#viz").children().fadeIn("slow");
-            }, 400);
+            if (error) throw error;
+
+            d3.select("#stage").text(function(d) {
+                return graph.nodes[4].name;
+            });
+
+            d3.select("#description").html(function(d) {
+                return graph.nodes[4].text;
+            });
         });
-
-        setTimeout(function() {
-            restart();
-        }, 500);
-
-        $("#step").text(stepper);
 
         if (stepper == 1) {
             $("#backButton").css("visibility", "hidden");
@@ -309,11 +337,23 @@ function backwards () {
 
     } else {
 
-        d3.select("#stage").text("Output");
+        if (stepper > 1) {
 
-        d3.select("#description").html(function(d) {
-            return graph.nodes[4].output;
-        });
-    }
+            stepper--;
+    
+            $("#viz").children().fadeOut("slow", function() {
+                setTimeout(function() {
+                    $("#viz").children().fadeIn("slow");
+                }, 400);
+            });
+    
+            setTimeout(function() {
+                restart();
+            }, 500);
+    
+            $("#step").text(stepper);
+        }
+
+    };
 
 }
