@@ -41,6 +41,18 @@ body {
     height: 100%;
 }
 
+#network {
+    background-color: #ddece4;
+}
+
+#stage {
+    color: white;
+    background-color: #373A7C;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
 .label {
     text-anchor: middle;
     pointer-events: none;

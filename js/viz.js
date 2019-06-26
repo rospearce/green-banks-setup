@@ -1,7 +1,7 @@
 const svg = d3.select("svg"),
     width = +svg.style('width').slice(0, -2),
     height = +svg.style("height").slice(0, -2);
-    colors = ["rgb(55,58,124)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
+    colors = ["rgb(64,69,130)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
 
 var simulation = d3.forceSimulation()
     .force("link", 
@@ -159,6 +159,10 @@ function restart() {
         if (error) throw error;
 
         // UPDATE UI
+
+        d3.select("#stage").style("background-color", function(d) {
+            return colors[(stepper -1)];
+        });
 
         if (varState == 0) {
 
