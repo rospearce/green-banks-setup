@@ -45,7 +45,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    background: linear-gradient(to right, rgba(56, 138, 142, 0.45), rgba(92, 170, 72, 0.45));
+    background: linear-gradient(to right, rgba(75,82,135, 0.55), rgba(56,138,142, 0.55));
     z-index: -1;
 }
 
