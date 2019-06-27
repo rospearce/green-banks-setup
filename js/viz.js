@@ -411,7 +411,7 @@ function forward () {
 
             stepper++;
 
-            $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
+            $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
             $("#viz-wrapper").css({"left": 0, "opacity": 0});
             $("#output").css("visibility", "hidden");
 
@@ -425,16 +425,11 @@ function forward () {
                 $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52))"});
             }
 
+            restart();
+
             setTimeout(function() {
-                restart(varState);
-            }, 50);
-    
-            $("#viz").children().fadeOut("slow", function() {
-                setTimeout(function() {
-                    $("#viz-wrapper").css({opacity: 1});
-                    $("#viz").children().fadeIn("slow");
-                }, 200);
-            });
+                $("#viz-wrapper").animate({opacity: 1}, 800);
+            }, 700);
 
             d3.select("#questions").selectAll("*").remove();
     
@@ -445,8 +440,8 @@ function forward () {
 
     } else {
 
-        $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
-        $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px", "opacity": 0.6}, "slow");
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, 800);
+        $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px", "opacity": 0.6}, 800);
         $("#output").css("visibility", "visible");
 
         // update UI but don't update chart
@@ -491,8 +486,8 @@ function backwards () {
 
     if (varState == 0) {
 
-        $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
-        $("#viz-wrapper").animate({"left": 0, "opacity": 1}, "slow");
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
+        $("#viz-wrapper").animate({"left": 0, "opacity": 1}, 800);
         $("#output").css("visibility", "hidden");
 
         // update UI but don't update chart
@@ -531,21 +526,16 @@ function backwards () {
                 $("#background").css({"background": "linear-gradient(to right, rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
             }
 
-            $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
-            $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
+            $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, 800);
+            $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, 800);
             $("#viz-wrapper").css({"opacity": 0});
             $("#output").css("visibility", "visible");
 
+            restart();
+
             setTimeout(function() {
-                restart();
-            }, 50);
-    
-            $("#viz").children().fadeOut("slow", function() {
-                setTimeout(function() {
-                    $("#viz-wrapper").css("opacity", 0.6);
-                    $("#viz").children().fadeIn("slow");
-                }, 200);
-            });
+                $("#viz-wrapper").animate({"opacity": 0.6}, 800);
+            }, 700);
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));

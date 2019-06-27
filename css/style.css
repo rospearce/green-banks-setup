@@ -14,7 +14,7 @@ p {
 
 h1 {
     font-weight: 400;
-    color: rgb(91,170,72);
+    color: rgb(91, 160, 73);
 }
 
 #wrapper {
@@ -202,7 +202,7 @@ line {
     margin-right: 1em;
 }
 
-#description .fa-check {
+.fa-check {
     color: #adadad;
     padding-right: 2px;
 }
