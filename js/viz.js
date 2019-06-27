@@ -488,6 +488,9 @@ function backwards () {
 
     if (varState == 0) {
 
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
+        $("#viz-wrapper").animate({"left": 0, "opacity": 1}, "slow");
+
         // update UI but don't update chart
         d3.json("./data/data" + stepper + ".json", function(error, graph) {
 
@@ -522,10 +525,13 @@ function backwards () {
                 $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55))"});
             }
 
-            $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
+            $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
+            $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
+            $("#viz-wrapper").css({"opacity": 0});
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
+                    $("#viz-wrapper").animate({"opacity": 0.6}, "fast");
                     $("#viz").children().fadeIn("slow");
                 }, 400);
             });
