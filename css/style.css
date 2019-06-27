@@ -140,8 +140,19 @@ line {
 #step-nav p {
     font-size: 20px;
     text-align: right;
+    margin-right: 1em;
 }
 
-i {
+#description i {
     color: #adadad;
+    padding-right: 2px;
+}
+
+#step-nav a {
+    color: #adadad;
+}
+
+#step-nav a:hover {
+    cursor: pointer;
+    color: #616161;
 }
