@@ -74,6 +74,12 @@ h1 {
     flex: 2 0 0;
 }
 
+.small2 {
+    -ms-flex: 2 0 0;
+    -webkit-flex: 2 0 0;
+    flex: 2 0 0;
+}
+
 #text {
     margin: 15px;
 }

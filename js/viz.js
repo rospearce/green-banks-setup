@@ -5,6 +5,13 @@ function updateSize () {
     
     networkWidth = $("#network").width();
     networkHeight = $("#network").height();
+    let windowWidth = $(window).width();
+
+
+
+    if (windowWidth < 501) {
+        networkHeight = 300;
+    }
 
     $("#background").width(networkWidth);
     $("#background").height(networkHeight);
@@ -16,11 +23,28 @@ function updateSize () {
         return (networkHeight - flowHeight)/2;
     });
 
-    $("#viz-wrapper").height(networkWidth);
+    if (networkHeight > networkWidth) {
 
-    $("#viz-wrapper").css("margin-top", function () {
-        return (networkHeight - networkWidth)/2;
-    });
+        $("#viz-wrapper").height(networkWidth);
+
+        $("#viz-wrapper").css("margin-left", 0);
+        $("#viz-wrapper").css("margin-top", function () {
+            return (networkHeight - networkWidth)/2;
+        });
+
+    } else {
+
+        $("#viz-wrapper").height(networkHeight);
+        $("#viz-wrapper").width(networkHeight);
+
+        $("#viz-wrapper").css("margin-top", 0);
+        $("#viz-wrapper").css("margin-left", function () {
+            return (networkWidth - networkHeight)/2;
+        });
+
+    }
+
+
 
 }
 
