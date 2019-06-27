@@ -23,7 +23,7 @@ h1 {
     position: absolute;
     left: 0;
     top: 0;
-    background-image: linear-gradient(rgb(134, 207, 167), rgb(150, 202, 137), rgb(218, 214, 125));
+    background-image: linear-gradient(rgb(148, 214, 178), rgb(168, 212, 156), rgb(226, 222, 139));
 }
 
 #intro-text-wrapper {
@@ -41,8 +41,8 @@ h1 {
     background-repeat: no-repeat;
     margin-right: auto;
     margin-left: auto;
-    width: 400px;
-    height: 60px;
+    width: 260px;
+    height: 40px;
     opacity: 0.9;
 }
 
@@ -191,4 +191,36 @@ line {
 #step-nav a:hover {
     cursor: pointer;
     color: #616161;
+}
+
+button {
+    background: rgb(91,170,72);
+    color: #ffffff;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    margin-top: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: rgb(77, 143, 61);
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
 }
