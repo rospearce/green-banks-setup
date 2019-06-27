@@ -437,7 +437,7 @@ function forward () {
     
             setTimeout(function() {
                 restart(varState);
-            }, 500);
+            }, 200);
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));
@@ -447,8 +447,7 @@ function forward () {
     } else {
 
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
-        $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
-        $("#viz-wrapper").animate({"opacity": 0.6}, "fast");
+        $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px", "opacity": 0.6}, "slow");
         $("#output").css("visibility", "visible");
 
         // update UI but don't update chart
@@ -543,7 +542,7 @@ function backwards () {
     
             setTimeout(function() {
                 restart();
-            }, 500);
+            }, 200);
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));
