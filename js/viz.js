@@ -96,11 +96,7 @@ function makeChart () {
             })
             .on("mouseover", mouseover)
             .on("mouseout", mouseout)
-            .on("click", mouseclick)
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
+            .on("click", mouseclick);
     
         // hacky way of getting two lines without bothering with html
         label1 = node.append("text")
@@ -180,23 +176,6 @@ function makeChart () {
 }
 
 makeChart();
-
-function dragstarted(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-}
-
-function dragged(d) {
-    d.fx = d3.event.x;
-    d.fy = d3.event.y;
-}
-
-function dragended(d) {
-    if (!d3.event.active) simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-}
 
 function mouseover(d) {
     switch(varState) {
@@ -363,11 +342,7 @@ function restart() {
         })
         .on("mouseover", mouseover)
         .on("mouseout", mouseout)
-        .on("click", mouseclick)
-        .call(d3.drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
+        .on("click", mouseclick);
 
         // RESTART SIMULATION
         function ticked() {
