@@ -3,6 +3,10 @@ body {
     font-family: "Open Sans", "Helvetica", sans-serif;
 }
 
+p {
+    color: #252525;
+}
+
 #wrapper {
     height: 650px;
 }
@@ -79,6 +83,7 @@ body {
     padding: 3px;
     padding-left: 6px;
     padding-right: 6px;
+    border-radius: 3px;
 }
 
 .label {
@@ -124,4 +129,19 @@ line {
     -moz-animation: flicker 1.5s infinite;
     -o-animation: flicker 1.5s infinite;
     animation: flicker 1.5s infinite;
+}
+
+#step {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+#step-nav p {
+    font-size: 20px;
+    text-align: right;
+}
+
+i {
+    color: #adadad;
 }
