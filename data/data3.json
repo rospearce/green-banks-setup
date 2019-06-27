@@ -10,9 +10,9 @@
         },
         {
             "id": "2", 
-            "name":  "Stakeholder engagment",
+            "name":  "Stakeholder engagement",
             "label1":  "Stakeholder",
-            "label2":  "engagment",
+            "label2":  "engagement",
             "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
             "group": 1
         },
@@ -38,7 +38,7 @@
             "label1": "Establishment",
             "label2": "",
             "text": "<p>This phase starts by translating the concept into an actual institution. The decisions taken on the governance framework of the institution provides the foundations for its success. Giving the board of the institution independence to set its course will build market confidence by demonstrating that it is not subject to political interference.</p>",
-            "output": "<p><i class='fas fa-check-circle'></i> Strategy and operational planning.</p><p><i class='fas fa-check-circle'></i> Legislation form.</p><p><i class='fas fa-check-circle'></i> Regulatory framework.</p><p><i class='fas fa-check-circle'></i> Accounting treatment (on/off balance sheet).</p><p><i class='fas fa-check-circle'></i> Composition of the Board.</p><p><i class='fas fa-check-circle'></i> Agreement of mission, operating principles, and strategic objectives.</p><p><i class='fas fa-check-circle'></i> Risk management, rate of return.</p><p><i class='fas fa-check-circle'></i> Set out the location of the institution.</p>",
+            "output": "<p class='point-up'><i class='fas fa-caret-down'></i></p><h3>Output</h3><p><i class='fas fa-check'></i> Strategy and operational planning.</p><p><i class='fas fa-check'></i> Legislation form.</p><p><i class='fas fa-check'></i> Regulatory framework.</p><p><i class='fas fa-check'></i> Accounting treatment (on/off balance sheet).</p><p><i class='fas fa-check'></i> Composition of the Board.</p><p><i class='fas fa-check'></i> Agreement of mission, operating principles, and strategic objectives.</p><p><i class='fas fa-check'></i> Risk management, rate of return.</p><p><i class='fas fa-check'></i> Set out the location of the institution.</p>",
             "group": 2
         }
     ],

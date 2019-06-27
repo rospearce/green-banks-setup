@@ -10,9 +10,9 @@
         },
         {
             "id": "2", 
-            "name":  "Stakeholder engagment",
+            "name":  "Stakeholder engagement",
             "label1":  "Stakeholder",
-            "label2":  "engagment",
+            "label2":  "engagement",
             "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
             "group": 1
         },
@@ -38,7 +38,7 @@
             "label1": "Evolution",
             "label2": "",
             "text": "<p>The evolution phase represents how a green bank responds to the changing requirements; as the bank breaks down market barriers and introduces private capital, it will need to open up new markets. This phase also captures how the bank responds performance reviews, as well as continuing engagement with the stakeholders -who were key in the casemaking and design phases of the institution.</p>",
-            "output": "<p><i class='fas fa-check-circle'></i> Future needs of the transition</p><p><i class='fas fa-check-circle'></i> Level of capital adequacy</p><p><i class='fas fa-check-circle'></i> Performance of the institution.</p><p><i class='fas fa-check-circle'></i> State of the market barriers.</p><p><i class='fas fa-check-circle'></i> Relevance of sectoral priorities.</p><p><i class='fas fa-check-circle'></i> Recapitalization of the institution.</p><p><i class='fas fa-check-circle'></i> Green criteria and international best practice.</p>",
+            "output": "<p class='point-up'><i class='fas fa-caret-down'></i></p><h3>Output</h3><p><i class='fas fa-check'></i> Future needs of the transition</p><p><i class='fas fa-check'></i> Level of capital adequacy</p><p><i class='fas fa-check'></i> Performance of the institution.</p><p><i class='fas fa-check'></i> State of the market barriers.</p><p><i class='fas fa-check'></i> Relevance of sectoral priorities.</p><p><i class='fas fa-check'></i> Recapitalization of the institution.</p><p><i class='fas fa-check'></i> Green criteria and international best practice.</p>",
             "group": 2
         }
     ],

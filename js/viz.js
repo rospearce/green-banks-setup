@@ -38,7 +38,6 @@ const width = 600;
     .attr("viewBox", "0 0 600 600")
     .attr("preserveAspectRatio", "xMinYMin meet")
     .append("g");
-    // .attr("transform", "translate(" + r + "," + r +") rotate(180) scale(-1, -1)");
 
 var simulation = d3.forceSimulation()
     .force("link", 
@@ -238,10 +237,12 @@ function restart() {
 
         } else {
 
-            d3.select("#stage").text("Output");
-
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].output;
+            });
+
+            d3.selectAll("h3, .point-up").style("color", function(d) {
+                return colors[(stepper -1)];
             });
 
             d3.select("#questions").selectAll("*").remove();
@@ -431,10 +432,12 @@ function forward () {
 
             if (error) throw error;
 
-            d3.select("#stage").text("Output");
-
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].output;
+            });
+
+            d3.selectAll("h3, .point-up").style("color", function(d) {
+                return colors[(stepper -1)];
             });
 
             // remove all children

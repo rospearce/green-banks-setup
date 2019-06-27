@@ -182,23 +182,23 @@ line {
 }
 
 #step-nav p {
-    font-size: 20px;
+    font-size: 25px;
     text-align: right;
     margin-right: 1em;
 }
 
-#description i {
+#description .fa-check {
     color: #adadad;
     padding-right: 2px;
 }
 
 #step-nav a {
-    color: #adadad;
+    color: #cacaca;
 }
 
 #step-nav a:hover {
     cursor: pointer;
-    color: #616161;
+    color: #808080;
 }
 
 button {

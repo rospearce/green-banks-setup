@@ -10,9 +10,9 @@
         },
         {
             "id": "2", 
-            "name":  "Stakeholder engagment",
+            "name":  "Stakeholder engagement",
             "label1":  "Stakeholder",
-            "label2":  "engagment",
+            "label2":  "engagement",
             "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
             "group": 1
         },
@@ -38,7 +38,7 @@
             "label1": "Case",
             "label2": "making",
             "text": "<p>The casemaking phase is about the reasoning/ justification for a different policy or instrument. It provides direction of what the future institution or reform could deliver if implemented. The proposal needs to demonstrate that it is aligned with the strategic goal of the country.</p>",
-            "output": "<p><i class='fas fa-check-circle'></i> Mapping of the current financial landscape.</p><p><i class='fas fa-check-circle'></i> Low carbon agenda including targets.</p><p><i class='fas fa-check-circle'></i> Total infrastructure financing requirement, green requirements by sector.</p><p><i class='fas fa-check-circle'></i> Determine the missing markets.</p><p><i class='fas fa-check-circle'></i> The objective of the GIB  and proposal for its functions, based on the finance strategy (above points) and market barriers.</p><p><i class='fas fa-check-circle'></i> Market testing (finance, government, NGOs, political parties).</p>",
+            "output": "<p class='point-up'><i class='fas fa-caret-down'></i></p><h3>Output</h3><p><i class='fas fa-check'></i> Mapping of the current financial landscape.</p><p><i class='fas fa-check'></i> Low carbon agenda including targets.</p><p><i class='fas fa-check'></i> Total infrastructure financing requirement, green requirements by sector.</p><p><i class='fas fa-check'></i> Determine the missing markets.</p><p><i class='fas fa-check'></i> The objective of the GIB  and proposal for its functions, based on the finance strategy (above points) and market barriers.</p><p><i class='fas fa-check'></i> Market testing (finance, government, NGOs, political parties).</p>",
             "group": 2
         }
     ],
