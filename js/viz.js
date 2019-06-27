@@ -414,6 +414,7 @@ function forward () {
 
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*stepper) + "px"}, "slow");
             $("#viz-wrapper").css({"left": 0, "opacity": 0});
+            $("#output").css("visibility", "hidden");
 
             stepper++;
 
@@ -447,6 +448,7 @@ function forward () {
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
         $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
         $("#viz-wrapper").animate({"opacity": 0.6}, "fast");
+        $("#output").css("visibility", "visible");
 
         // update UI but don't update chart
         d3.json("./data/data" + stepper + ".json", function(error, graph) {
@@ -490,6 +492,7 @@ function backwards () {
 
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, "slow");
         $("#viz-wrapper").animate({"left": 0, "opacity": 1}, "slow");
+        $("#output").css("visibility", "hidden");
 
         // update UI but don't update chart
         d3.json("./data/data" + stepper + ".json", function(error, graph) {
@@ -528,6 +531,7 @@ function backwards () {
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
             $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
             $("#viz-wrapper").css({"opacity": 0});
+            $("#output").css("visibility", "visible");
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {

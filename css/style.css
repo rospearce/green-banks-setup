@@ -94,3 +94,34 @@ body {
 line {
     opacity: 0.8;
 }
+
+@keyframes flicker {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-o-keyframes flicker {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes flicker {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes flicker {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+.arrow {
+    -webkit-animation: flicker 1.5s infinite;
+    -moz-animation: flicker 1.5s infinite;
+    -o-animation: flicker 1.5s infinite;
+    animation: flicker 1.5s infinite;
+}
