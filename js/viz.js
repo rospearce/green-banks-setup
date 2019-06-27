@@ -44,8 +44,6 @@ function updateSize () {
 
     }
 
-
-
 }
 
 updateSize();
@@ -261,7 +259,7 @@ function restart() {
 
         } else {
 
-            d3.select("#description").html(function(d) {
+            d3.select("#questions").html(function(d) {
                 return graph.nodes[4].output;
             });
 
@@ -269,7 +267,7 @@ function restart() {
                 return colors[(stepper -1)];
             });
 
-            d3.select("#questions").selectAll("*").remove();
+            d3.select("#description").selectAll("*").remove();
 
         }
         
@@ -437,8 +435,8 @@ function forward () {
                     $("#viz").children().fadeIn("slow");
                 }, 200);
             });
-    
 
+            d3.select("#questions").selectAll("*").remove();
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));
@@ -456,7 +454,7 @@ function forward () {
 
             if (error) throw error;
 
-            d3.select("#description").html(function(d) {
+            d3.select("#questions").html(function(d) {
                 return graph.nodes[4].output;
             });
 
@@ -465,7 +463,7 @@ function forward () {
             });
 
             // remove all children
-            d3.select("#questions").selectAll("*").remove();
+            d3.select("#description").selectAll("*").remove();
         });
 
         if (stepper == 5) {
@@ -510,6 +508,8 @@ function backwards () {
                 return graph.nodes[4].text;
             });
         });
+
+        d3.select("#questions").selectAll("*").remove();
 
         if (stepper == 1) {
             $("#backButton").css("visibility", "hidden");
