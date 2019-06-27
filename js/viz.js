@@ -203,7 +203,7 @@ function mouseclick(d) {
         case 0:
             if (d.id !== "5") {
                 d3.select("#questions").html(d.text);
-                d3.selectAll("h3").style("color", function(d) {
+                d3.selectAll("h3, .point-up").style("color", function(d) {
                     return colors[(stepper -1)];
                 });
             };
@@ -379,7 +379,6 @@ function forward () {
             break;
     };
 
-
     $("#backButton").css("visibility", "visible");
     $("#forwardButton").css("visibility", "visible");
 
@@ -398,21 +397,23 @@ function forward () {
 
             if (stepper < 5) {
                 let color3 = (colors[stepper]).slice(4, -1);
-                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
             } else {
-                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55))"});
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52))"});
             }
+
+            setTimeout(function() {
+                restart(varState);
+            }, 50);
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
                     $("#viz-wrapper").css({opacity: 1});
                     $("#viz").children().fadeIn("slow");
-                }, 400);
+                }, 200);
             });
     
-            setTimeout(function() {
-                restart(varState);
-            }, 200);
+
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));
@@ -498,26 +499,26 @@ function backwards () {
 
             if (stepper > 1) {
                 let color1 = (colors[(stepper-2)]).slice(4, -1);
-                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.55), rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
             } else {
-                $("#background").css({"background": "linear-gradient(to right, rgba(" + color2 + ", 0.55), rgba(" + color3 + ", 0.55))"});
+                $("#background").css({"background": "linear-gradient(to right, rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
             }
 
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
             $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
             $("#viz-wrapper").css({"opacity": 0});
             $("#output").css("visibility", "visible");
+
+            setTimeout(function() {
+                restart();
+            }, 50);
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
                     $("#viz-wrapper").css("opacity", 0.6);
                     $("#viz").children().fadeIn("slow");
-                }, 400);
+                }, 200);
             });
-    
-            setTimeout(function() {
-                restart();
-            }, 200);
     
             $("#step").text(stepper);
             $("#step").css("color", (colors[(stepper -1)]));

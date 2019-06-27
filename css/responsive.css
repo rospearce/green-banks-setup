@@ -4,6 +4,10 @@
         -webkit-flex: 2 0 0;
         flex: 2 0 0;
     }
+
+    #text {
+        margin: 20px;
+    }
 }
 
 @media all and (max-width: 800px) {
