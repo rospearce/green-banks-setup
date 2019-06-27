@@ -135,6 +135,7 @@ line {
     padding-left: 10px;
     padding-right: 10px;
     font-weight: bold;
+    color: rgb(75,82,135);
 }
 
 #step-nav p {

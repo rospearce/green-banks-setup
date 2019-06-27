@@ -440,6 +440,7 @@ function forward () {
             }, 500);
     
             $("#step").text(stepper);
+            $("#step").css("color", (colors[(stepper -1)]));
     
         }
 
@@ -545,6 +546,7 @@ function backwards () {
             }, 500);
     
             $("#step").text(stepper);
+            $("#step").css("color", (colors[(stepper -1)]));
 
         }
 
