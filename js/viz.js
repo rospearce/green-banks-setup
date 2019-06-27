@@ -413,6 +413,7 @@ function forward () {
         if (stepper < 5) {
 
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*stepper) + "px"}, "slow");
+            $("#viz-wrapper").css({"left": 0, "opacity": 0});
 
             stepper++;
 
@@ -428,6 +429,7 @@ function forward () {
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
+                    $("#viz-wrapper").css({opacity: 1});
                     $("#viz").children().fadeIn("slow");
                 }, 400);
             });
@@ -437,12 +439,14 @@ function forward () {
             }, 500);
     
             $("#step").text(stepper);
-
-            console.log(stepper);   
     
         }
 
     } else {
+
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, "slow");
+        $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, "slow");
+        $("#viz-wrapper").animate({"opacity": 0.6}, "fast");
 
         // update UI but don't update chart
         d3.json("./data/data" + stepper + ".json", function(error, graph) {
