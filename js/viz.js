@@ -224,6 +224,9 @@ function mouseclick(d) {
         case 0:
             if (d.id !== "5") {
                 d3.select("#questions").html(d.text);
+                d3.selectAll("h3").style("color", function(d) {
+                    return colors[(stepper -1)];
+                });
             };
             break;
         case 1:
