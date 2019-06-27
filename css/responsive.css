@@ -5,3 +5,19 @@
         flex: 2 0 0;
     }
 }
+
+@media all and (max-width: 800px) {
+
+    p {
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+}
