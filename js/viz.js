@@ -527,3 +527,13 @@ function backwards () {
     };
 
 }
+
+function hideIntro () {
+
+    $("#intro").fadeTo("fast", 0, moveBehind);
+
+    function moveBehind () {
+        $("#intro").css("z-index", "-99999");
+    }
+
+}
