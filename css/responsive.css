@@ -28,6 +28,10 @@
         font-size: 1.1em;
     }
 
+    #step-nav p {
+        font-size: 22px;
+    }
+
 }
 
 @media all and (max-width: 500px) {
