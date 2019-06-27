@@ -26,6 +26,10 @@ function updateSize () {
 
 updateSize();
 
+$(window).on('resize', function () {
+    updateSize();
+});
+
 const width = 600;
     height = 600;
     colors = ["rgb(75,82,135)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
