@@ -8,8 +8,42 @@ p {
     font-size: 15.5px;
 }
 
+h1 {
+    font-weight: 400;
+    color: rgb(91,170,72);
+}
+
 #wrapper {
     height: 650px;
+}
+
+#loading {
+    width: 100%;
+    height: 650px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(rgb(134, 207, 167), rgb(150, 202, 137), rgb(218, 214, 125));
+}
+
+#intro {
+    width: 100%;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 150px;
+    text-align: center;
+}
+
+#flow-overview {
+    background-image: url(../img/flow-overview.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+    height: 60px;
+    opacity: 0.9;
 }
 
 .row {
@@ -62,7 +96,7 @@ p {
     left: 5px;
     z-index: 20;
     background-image: url(../img/logo.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.65;
 }
