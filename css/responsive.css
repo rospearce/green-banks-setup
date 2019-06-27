@@ -83,6 +83,7 @@
     }
 
     #flow-overview {
+        max-width: 95%;
         width: 360px;
         height: 110px;
     }
