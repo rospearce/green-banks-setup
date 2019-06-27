@@ -510,7 +510,7 @@ function backwards () {
     
             $("#viz").children().fadeOut("slow", function() {
                 setTimeout(function() {
-                    $("#viz-wrapper").animate({"opacity": 0.6}, "fast");
+                    $("#viz-wrapper").css("opacity", 0.6);
                     $("#viz").children().fadeIn("slow");
                 }, 400);
             });
