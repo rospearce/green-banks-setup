@@ -5,7 +5,7 @@
             "name": "Decision making process",
             "label1": "Decision",
             "label2": "making process",
-            "text": "<h3>Decision making process</h3><p>Eventually, you do plan to have dinosaurs on your dinosaur tour, right? God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. Hey, you know how I'm, like, always trying to save the planet? Here's my chance.</p>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Decision making process</h3><p>Eventually, you do plan to have dinosaurs on your dinosaur tour, right? God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. Hey, you know how I'm, like, always trying to save the planet? Here's my chance.</p>",
             "group": 1
         },
         {
@@ -13,7 +13,7 @@
             "name":  "Stakeholder engagment",
             "label1":  "Stakeholder",
             "label2":  "engagment",
-            "text": "<h3>Stakeholder engagment</h3><p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Yes, Yes, without the oops! Hey, you know how I'm, like, always trying to save the planet? Here's my chance. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
             "group": 1
         },
         {
@@ -21,7 +21,7 @@
             "name": "Analytical support",
             "label1": "Analytical",
             "label2": "support",
-            "text": "<h3>Analytical support</h3><p>Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Must go faster. Jaguar shark! So tell me - does it really exist? What do they got in there? King Kong? Yes, Yes, without the oops! Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists.</p>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Analytical support</h3><p>Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Must go faster. Jaguar shark! So tell me - does it really exist? What do they got in there? King Kong? Yes, Yes, without the oops! Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists.</p>",
             "group": 1
         },
         {
@@ -29,7 +29,7 @@
             "name": "Standards and frameworks",
             "label1": "Standards &",
             "label2": "frameworks",
-            "text": "<h3>Standards and frameworks</h3><p>Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops! We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Standards and frameworks</h3><p>Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops! We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!</p>",
             "group": 1
         },
         {
