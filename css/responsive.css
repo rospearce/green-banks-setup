@@ -1,4 +1,34 @@
-@media all and (min-width: 1100px) {
+@media all and (min-width: 1350px) {
+
+    #wrapper {
+        height: 750px;
+    }
+
+    #intro {
+        height: 750px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    #questions p {
+        font-size: 15.5px;
+    }
+
+}
+
+@media all and (min-width: 1150px) {
+
+    .large {
+        -ms-flex: 2 0 0;
+        -webkit-flex: 2 0 0;
+        flex: 2 0 0;
+    }
+
+}
+
+@media all and (min-width: 1050px) {
 
     #text {
         margin: 20px;
