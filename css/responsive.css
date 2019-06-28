@@ -29,6 +29,11 @@
         font-size: 13.5px;
     }
 
+    #questions .point-up {
+        font-size: 22px;
+        line-height: 13px;
+    }
+
     h2 {
         font-size: 1.3em;
     }

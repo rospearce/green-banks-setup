@@ -141,11 +141,11 @@ h1 {
     font-weight: bold;
 }
 
-.point-up {
-    margin-block-start: 0.2em;
+#questions .point-up {
+    margin-block-start: 0.8em;
     margin-block-end: 0em;
-    font-size: 30px;
-    line-height: 18px;
+    font-size: 26px;
+    line-height: 15px;
     color: #adadad;
     opacity: 0.5;
 }
