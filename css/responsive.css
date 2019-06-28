@@ -16,6 +16,10 @@
         font-size: 15.5px;
     }
 
+    #text {
+        margin: 30px;
+    }
+
 }
 
 @media all and (min-width: 1150px) {
@@ -121,6 +125,7 @@
 
     #text {
         top: 300px;
+        margin: 10px;
     }
 
     #wrapper {
