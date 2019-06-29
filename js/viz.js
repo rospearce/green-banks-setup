@@ -138,6 +138,13 @@ function makeChart () {
                     return "19px";
                 }
             })
+            .style("font-weight", function(d) {
+                if (d.id !== "5") {
+                    return "normal"; 
+                } else {
+                    return "bold";
+                }
+            })
             .attr("class", "label")
             .attr('x', 0)
             .attr('y', -5);
@@ -165,6 +172,13 @@ function makeChart () {
                     return "15px"; 
                 } else {
                     return "19px";
+                }
+            })
+            .style("font-weight", function(d) {
+                if (d.id !== "5") {
+                    return "normal"; 
+                } else {
+                    return "bold";
                 }
             })
             .attr("class", "label")
@@ -319,6 +333,13 @@ function restart() {
                 
             }
         })
+        .style("font-weight", function(d) {
+            if (d.id !== "5") {
+                return "normal"; 
+            } else {
+                return "bold";
+            }
+        })
         .attr('x', 0)
         .attr('y', function(d) {
             if(d.label2 !== "") {
@@ -348,6 +369,13 @@ function restart() {
                 return "15px"; 
             } else {
                 return "19px";
+            }
+        })
+        .style("font-weight", function(d) {
+            if (d.id !== "5") {
+                return "normal"; 
+            } else {
+                return "bold";
             }
         })
         .attr("class", "label")
