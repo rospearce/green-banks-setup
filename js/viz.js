@@ -442,7 +442,10 @@ function forward () {
 
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, 800);
         $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px", "opacity": 0.6}, 800);
-        $("#output").css("visibility", "visible");
+
+        setTimeout(function() {
+            $("#output").css("visibility", "visible");
+        }, 500);
 
         // update UI but don't update chart
         d3.json("./data/data" + stepper + ".json", function(error, graph) {
@@ -529,7 +532,10 @@ function backwards () {
             $("#flow-wrapper").animate({"left": "-" + (networkWidth*((stepper -1) + 0.35)) + "px"}, 800);
             $("#viz-wrapper").animate({"left": "-" + (networkWidth*0.35) + "px"}, 800);
             $("#viz-wrapper").css({"opacity": 0});
-            $("#output").css("visibility", "visible");
+
+            setTimeout(function() {
+                $("#output").css("visibility", "visible");
+            }, 500);
 
             restart();
 
