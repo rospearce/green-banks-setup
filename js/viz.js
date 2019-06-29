@@ -54,7 +54,7 @@ $(window).on('resize', function () {
 
 const width = 600;
     height = 600;
-    colors = ["rgb(75,82,135)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
+    colors = ["rgb(94,101,142)", "rgb(56,138,142)", "rgb(78,183,125)", "rgb(91,170,72)", "rgb(188,184,57)"];
     svg = d3.select("#viz-wrapper").append("svg")
     .attr("id", "viz")
     .attr("viewBox", "0 0 600 600")
@@ -433,7 +433,7 @@ function forward () {
 
             d3.select("#questions").selectAll("*").remove();
     
-            $("#step").text(stepper);
+            $("#step").text("Phase " + stepper);
             $("#step").css("color", (colors[(stepper -1)]));
     
         }
@@ -537,8 +537,19 @@ function backwards () {
                 $("#viz-wrapper").animate({"opacity": 0.6}, 800);
             }, 700);
     
-            $("#step").text(stepper);
+            $("#step").text("Phase " + stepper);
             $("#step").css("color", (colors[(stepper -1)]));
+
+                    // update UI but don't update chart
+            d3.json("./data/data" + stepper + ".json", function(error, graph) {
+
+                if (error) throw error;
+
+                d3.select("#stage").text(function(d) {
+                    return graph.nodes[4].name;
+                });
+
+            });
 
         }
 

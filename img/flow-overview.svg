@@ -7,13 +7,13 @@
 	.st1{fill:url(#SVGID_2_);}
 	.st2{fill:url(#SVGID_3_);}
 	.st3{fill:url(#SVGID_4_);}
-	.st4{fill:#4B5287;}
+	.st4{fill:#5E658E;}
 	.st5{fill:#388A8E;}
 	.st6{fill:#4EB77D;}
 	.st7{fill:#5BAA48;}
 	.st8{fill:#BCB839;}
 	.st9{display:none;}
-	.st10{display:inline;fill:#4B5287;}
+	.st10{display:inline;fill:#5E658E;}
 	.st11{font-family:'OpenSans-Bold';}
 	.st12{font-size:80px;}
 	.st13{display:inline;fill:#388A8E;}
@@ -42,7 +42,7 @@
 	</linearGradient>
 	<rect x="899" y="607.5" class="st2" width="326" height="27"/>
 	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="466" y1="621" x2="793" y2="621">
-		<stop  offset="1.598337e-08" style="stop-color:#4B5287"/>
+		<stop  offset="1.598337e-08" style="stop-color:#5E658E"/>
 		<stop  offset="1" style="stop-color:#388A8E"/>
 	</linearGradient>
 	<rect x="466" y="607.5" class="st3" width="327" height="27"/>
