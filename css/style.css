@@ -261,7 +261,7 @@ button:active {
     position: absolute;
     top: 20px;
     left: calc(25% - 50px);
-    z-index: 8;
+    /* z-index: 4; */
 }
 
 #dot-nav li {
