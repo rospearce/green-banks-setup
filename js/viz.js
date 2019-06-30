@@ -467,6 +467,15 @@ function forward () {
     
             $("#step").text("Phase " + stepper);
             $("#step").css("color", (colors[(stepper -1)]));
+
+            // update style of progress nav
+            $("#dot-nav li").removeClass("current");
+            $("#dot-nav li").each(function() {
+                let name = $(this).find("a").text();
+                if (name == stepper) {
+                    $(this).addClass("current");
+                }
+            });
     
         }
 
@@ -578,7 +587,6 @@ function backwards () {
             $("#step").text("Phase " + stepper);
             $("#step").css("color", (colors[(stepper -1)]));
 
-                    // update UI but don't update chart
             d3.json("./data/data" + stepper + ".json", function(error, graph) {
 
                 if (error) throw error;
@@ -587,6 +595,15 @@ function backwards () {
                     return graph.nodes[4].name;
                 });
 
+            });
+
+            // update style of progress nav
+            $("#dot-nav li").removeClass("current");
+            $("#dot-nav li").each(function() {
+                let name = $(this).find("a").text();
+                if (name == stepper) {
+                    $(this).addClass("current");
+                }
             });
 
         }
