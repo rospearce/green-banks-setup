@@ -12,6 +12,24 @@ p {
     font-size: 14px;
 }
 
+#questions ul {
+    font-size: 14px;
+    list-style: none;
+}
+
+#questions li {
+    margin-bottom: 0.7em;
+}
+
+#questions ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #adadad; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */ 
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
 h1 {
     font-weight: 400;
     color: rgb(91, 160, 73);
