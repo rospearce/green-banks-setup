@@ -471,7 +471,7 @@ function forward () {
             // update style of progress nav
             $("#dot-nav li").removeClass("current");
             $("#dot-nav li").each(function() {
-                let name = $(this).find("a").text();
+                name = $(this).find("a").text();
                 if (name == stepper) {
                     $(this).addClass("current");
                 }
@@ -621,3 +621,59 @@ function hideIntro () {
     }
 
 }
+
+// nav bar actions
+$("#dot-nav li").on("click", function() {
+
+    let dotName = $(this).find("a").text();
+
+    // update style
+    $("#dot-nav li").removeClass("current");
+    $(this).addClass("current");
+    $("#backButton").css("visibility", "visible");
+    $("#forwardButton").css("visibility", "visible");
+
+    if (dotName > stepper) {
+
+        stepper = dotName;
+
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
+        $("#viz-wrapper").css({"left": 0, "opacity": 0});
+        $("#output").css("visibility", "hidden");
+
+        let color1 = (colors[(stepper-2)]).slice(4, -1);
+        let color2 = (colors[(stepper-1)]).slice(4, -1);
+
+        if (stepper < 5) {
+            let color3 = (colors[stepper]).slice(4, -1);
+            $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
+        } else {
+            $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52))"});
+        }
+
+        restart();
+
+        setTimeout(function() {
+            $("#viz-wrapper").animate({opacity: 1}, 800);
+        }, 700);
+
+        d3.select("#questions").selectAll("*").remove();
+
+        $("#step").text("Phase " + stepper);
+        $("#step").css("color", (colors[(stepper -1)]));
+
+        varState = 0;
+
+    } else if (stepper < dotname) {
+
+        if (stepper == 1) {
+            $("#backButton").css("visibility", "hidden");
+        }
+
+        varState = 0;
+
+    } else {
+        // do nothing
+    }
+
+});
