@@ -307,9 +307,7 @@ function restart() {
         // UPDATE TEXT
         node.selectAll("text").remove();
 
-        node.append("text").text(function (d) {
-            return d.label1;
-        })
+        node.append("text").text(function (d) {return d.label1;})
         .attr("class", "label")
         .style("fill", function(d) {
             if (d.id !== "5") {
@@ -635,7 +633,8 @@ $("#dot-nav li").on("click", function() {
 
     if (dotName > stepper) {
 
-        stepper = dotName;
+        stepper = parseInt(dotName);
+        varState = 0;
 
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
         $("#viz-wrapper").css({"left": 0, "opacity": 0});
@@ -662,11 +661,10 @@ $("#dot-nav li").on("click", function() {
         $("#step").text("Phase " + stepper);
         $("#step").css("color", (colors[(stepper -1)]));
 
-        varState = 0;
-
     } else if (dotName < stepper) {
 
-        stepper = dotName;
+        stepper = parseInt(dotName);
+        varState = 0;
 
         $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
         $("#viz-wrapper").css({"left": 0, "opacity": 0});
@@ -696,8 +694,6 @@ $("#dot-nav li").on("click", function() {
         if (stepper == 1) {
             $("#backButton").css("visibility", "hidden");
         }
-
-        varState = 0;
 
     } else {
         // do nothing when equal
