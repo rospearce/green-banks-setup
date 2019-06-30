@@ -5,7 +5,7 @@
             "name": "Decision making process",
             "label1": "Decision",
             "label2": "making process",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Decision making process</h3><p></p><p>Key questions include:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Decision making process</h3><p>This element captures how key decisions on the evolution of the bank are reached. These include decisions originating both within the bank itself, and how other stakeholders – government, the private sector and civil society – interact with the bank to influence its future.</p><p>Key questions:</p><ul><li>What is the process to review the performance of the GIB?</li><li>Is the level of capitalization adequate for the bank’s ongoing activities?</li><li>How does the bank prioritise new sectors and decide when to exit?</li><li>How is the bank adjusting to evolving market requirements?</li><li>How is the GIB aligning with national climate targets?</li><li>In case of asset sale: What is the sale process of the institution?</li></ul>",
             "group": 1
         },
         {
@@ -13,7 +13,7 @@
             "name":  "Stakeholder engagement",
             "label1":  "Stakeholder",
             "label2":  "engagement",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p></p><p>Key questions include:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
             "group": 1
         },
         {
@@ -21,7 +21,7 @@
             "name": "Analytical support",
             "label1": "Analytical",
             "label2": "support",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Analytical support</h3><p></p><p>Key questions include:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Analytical support</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
             "group": 1
         },
         {
@@ -29,7 +29,7 @@
             "name": "Standards and frameworks",
             "label1": "Standards &",
             "label2": "frameworks",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Standards and frameworks</h3><p></p><p>Key questions include:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Standards and frameworks</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
             "group": 1
         },
         {
