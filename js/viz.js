@@ -287,6 +287,8 @@ function restart() {
 
             d3.select("#description").selectAll("*").remove();
 
+            $("#questions p a").removeClass().addClass("step-" + stepper);
+
         }
         
         // GENERAL UPDATE PATTERN
@@ -501,6 +503,8 @@ function forward () {
 
             // remove all children
             d3.select("#description").selectAll("*").remove();
+
+            $("#questions p a").removeClass().addClass("step-" + stepper);
         });
 
         if (stepper == 5) {

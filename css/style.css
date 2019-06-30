@@ -8,6 +8,35 @@ p {
     font-size: 15.5px;
 }
 
+a {
+    color: #252525;
+}
+
+.step-1:hover {
+    color: rgb(94,101,142);
+    text-decoration-color: rgb(94,101,142);
+}
+
+.step-2:hover {
+    color: rgb(56,138,142);
+    text-decoration-color: rgb(56,138,142);
+}
+
+.step-3:hover {
+    color: rgb(78,183,125);
+    text-decoration-color: rgb(78,183,125);
+}
+
+.step-4:hover {
+    color: rgb(91,170,72);
+    text-decoration-color: rgb(91,170,72);
+}
+
+.step-5:hover {
+    color: rgb(188,184,57);
+    text-decoration-color: rgb(188,184,57);
+}
+
 #questions p {
     font-size: 14px;
 }

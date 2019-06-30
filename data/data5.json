@@ -13,7 +13,7 @@
             "name":  "Stakeholder engagement",
             "label1":  "Stakeholder",
             "label2":  "engagement",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Stakeholder engagment</h3><p>This phase involves identifying the stakeholders who will shape the future evolution of the bank. In addition to those within the bank responsible for shaping its direction, stakeholders also include those organisations and institutions responsible for the initial casemaking and design phases of the institution, as well as financial institutions and those in the government responsible for both supervising the GB as well as those shaping government policy.</p><p>As the institution increasingly becomes a repository of knowledge and expertise in green issues, exchanges with the government will become increasingly two-way, with GB personnel increasingly informing government policy and decision making.</p><p>Key questions:</p><ul><li>How does the bank consult on future needs/ engage with the real economy and finance sectors?</li><li>What institutions will shape the evolution of the bank?</li><li>Will the GB inform government policy as well as vice versa?</li></ul>",
             "group": 1
         },
         {
@@ -21,7 +21,7 @@
             "name": "Analytical support",
             "label1": "Analytical",
             "label2": "support",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Analytical support</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Analytical support</h3><p>The decision making process for the evolution of the bank requires analytical support to evaluate the available options. This analytical capacity comes from the bank itself, alongside external advisors such as economic consultancies, NGOs and the relevant Government departments.</p><p>Key questions:</p><ul><li>What was its performance? (e.g. market barriers removed?)</li><li>What is the role of the institution moving forward? How is it aligned with national plans?</li><li>What is the sectoral landscape and where can the bank have the most impact?</li><li>Would a broader remit result in higher impact? Should the GIB invest at different levels of the economy?</li></ul>",
             "group": 1
         },
         {
@@ -29,7 +29,7 @@
             "name": "Standards and frameworks",
             "label1": "Standards &",
             "label2": "frameworks",
-            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Standards and frameworks</h3><p></p><p>Key questions:</p><ul><li></li><li></li><li></li></ul>",
+            "text": "<p class='point-up'><i class='fas fa-caret-up'></i></p><h3>Standards and frameworks</h3><p>In the evolution phase it is important to ensure that the institution is aligned with the best international standards and setting best practices to maintain its green credentials.</p><p>Key questions:</p><ul><li>Are the green principles and remit aligned with best practices?</li><li>Are there other non-green criteria that need to be included (e.g. social impacts)?</li></ul>",
             "group": 1
         },
         {
