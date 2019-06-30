@@ -664,7 +664,34 @@ $("#dot-nav li").on("click", function() {
 
         varState = 0;
 
-    } else if (stepper < dotname) {
+    } else if (dotName < stepper) {
+
+        stepper = dotName;
+
+        $("#flow-wrapper").animate({"left": "-" + (networkWidth*(stepper-1)) + "px"}, 800);
+        $("#viz-wrapper").css({"left": 0, "opacity": 0});
+        $("#output").css("visibility", "hidden");
+
+        let color2 = (colors[(stepper-1)]).slice(4, -1);
+        let color3 = (colors[stepper]).slice(4, -1);
+
+        if (stepper > 1) {
+            let color1 = (colors[(stepper-2)]).slice(4, -1);
+            $("#background").css({"background": "linear-gradient(to right, rgba(" + color1 + ", 0.52), rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
+        } else {
+            $("#background").css({"background": "linear-gradient(to right, rgba(" + color2 + ", 0.52), rgba(" + color3 + ", 0.52))"});
+        }
+
+        restart();
+
+        setTimeout(function() {
+            $("#viz-wrapper").animate({opacity: 1}, 800);
+        }, 700);
+
+        d3.select("#questions").selectAll("*").remove();
+
+        $("#step").text("Phase " + stepper);
+        $("#step").css("color", (colors[(stepper -1)]));
 
         if (stepper == 1) {
             $("#backButton").css("visibility", "hidden");
@@ -673,7 +700,7 @@ $("#dot-nav li").on("click", function() {
         varState = 0;
 
     } else {
-        // do nothing
+        // do nothing when equal
     }
 
 });
