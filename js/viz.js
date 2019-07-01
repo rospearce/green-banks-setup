@@ -241,14 +241,23 @@ function mouseclick(d) {
     switch(varState) {
         case 0:
             if (d.id !== "5") {
+                if (networkWidth < 501) {
+                    // remove description to create more room
+                    d3.select("#description").selectAll("*").remove();
+                }
                 d3.select("#questions").html(d.text);
                 d3.selectAll("h3, .point-up").style("color", function(d) {
                     return colors[(stepper -1)];
                 });
+            } else if (d.id == "5") {
+                if (networkWidth < 501) {
+                    d3.select("#description").html(d.text);
+                    d3.select("#questions").selectAll("*").remove();
+                }
             };
             break;
         case 1:
-            // no actions
+            // do nothing
             break;
     }
 
@@ -329,10 +338,19 @@ function restart() {
             switch(varState) {
                 case 0:
                     if (d.id !== "5") {
+                        if (networkWidth < 501) {
+                            // remove description to create more room
+                            d3.select("#description").selectAll("*").remove();
+                        }
                         d3.select("#questions").html(d.text);
                         d3.selectAll("h3, .point-up").style("color", function(d) {
                             return colors[(stepper -1)];
                         });
+                    } else if (d.id == "5") {
+                        if (networkWidth < 501) {
+                            d3.select("#description").html(d.text);
+                            d3.select("#questions").selectAll("*").remove();
+                        }
                     };
                     break;
                 case 1:
