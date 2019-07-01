@@ -206,6 +206,10 @@
         font-size: 12px;
     }
 
+    #questions em {
+        font-size: 12px;
+    }
+
     #questions ul {
         font-size: 12px;
     }
@@ -228,7 +232,7 @@
     }
 
     #text-wrapper {
-        max-height: 200px;
+        max-height: 150px;
     }
 
     .point-up {
@@ -236,9 +240,16 @@
     }
 
     #logo {
-        top: 250px;
-        width: 70px;
+        top: 240px;
+        width: 60px;
         height: 40px;
+        z-index: -1;
+    }
+
+    #credit {
+        font-size: 9px;
+        position: absolute;
+        top: 280px;
         z-index: -1;
     }
 
