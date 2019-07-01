@@ -126,9 +126,9 @@ h1 {
 }
 
 .small2 {
-    -ms-flex: 2 0 0;
-    -webkit-flex: 2 0 0;
-    flex: 2 0 0;
+    -ms-flex: 2.2 0 0;
+    -webkit-flex: 2.2 0 0;
+    flex: 2.2 0 0;
 }
 
 #text {
