@@ -95,6 +95,11 @@
 
     #step-nav p {
         font-size: 22px;
+        line-height: 22px;
+    }
+
+    #step {
+        font-size: 17px;
     }
 
     #text {
@@ -128,7 +133,14 @@
     }
 
     #step-nav p {
-        font-size: 22px;
+        font-size: 21px;
+        line-height: 21px;
+    }
+
+    #step {
+        font-size: 16px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     #flow-overview {
@@ -184,6 +196,10 @@
         font-size: 20px;
     }
 
+    h2 {
+        font-size: 1.1em;
+    }
+
     p {
         font-size: 13.5px;
     }
@@ -196,8 +212,21 @@
         font-size: 12px;
     }
 
+    .small2 {
+        -ms-flex: 2.4 0 0;
+        -webkit-flex: 2.4 0 0;
+        flex: 2.4 0 0;
+    }
+
     #step-nav p {
         font-size: 19px;
+        line-height: 19px;
+    }
+
+    #step {
+        font-size: 14px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     #text-wrapper {
