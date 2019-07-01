@@ -37,18 +37,6 @@
 
 @media all and (min-width: 1350px) {
 
-    #wrapper {
-        height: 720px;
-    }
-
-    #intro {
-        height: 720px;
-    }
-
-    #logo {
-        top: 650px;
-    }
-
     p {
         font-size: 17px;
     }
