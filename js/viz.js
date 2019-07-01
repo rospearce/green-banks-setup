@@ -83,6 +83,20 @@ let label2;
 let stepper = 1;
 let varState = 0;
 
+svg.append('defs').append('marker')
+.attrs({'id':'arrowhead',
+    'viewBox':'-0 -5 10 10',
+    'refX':13,
+    'refY':0,
+    'orient':'auto',
+    'markerWidth':5,
+    'markerHeight':5,
+    'xoverflow':'visible'})
+.append('svg:path')
+.attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+.attr('fill', d3.rgb(94,101,142).darker(0.5))
+.style('stroke','none');
+
 function makeChart () {
 
     d3.json("./data/data1.json", function(error, graph) {
@@ -92,10 +106,15 @@ function makeChart () {
             .attr("class", "links")
             .selectAll("line")
             .data(graph.links)
-            .enter().append("line")
+            .enter().append("polyline")
             .attr("stroke-width", function(d) { return d.value; })
             .attr("stroke", function(d) {
                 return d3.rgb(colors[(stepper - 1)]).darker(0.5);
+            })
+            .attr('marker-mid',function(d) {
+                if (d.target == 5) {
+                    return 'url(#arrowhead)';
+                }
             });
     
         node = svg.append("g")
@@ -193,10 +212,11 @@ function makeChart () {
         function ticked() {
     
             link
-                .attr("x1", function(d) { return d.source.x; })
-                .attr("y1", function(d) { return d.source.y; })
-                .attr("x2", function(d) { return d.target.x; })
-                .attr("y2", function(d) { return d.target.y; });
+            .attr("points", function(d) {
+                return d.source.x + "," + d.source.y + " " + 
+                (d.source.x + d.target.x)/2 + "," + (d.source.y + d.target.y)/2 + " " +
+                d.target.x + "," + d.target.y; 
+            });
     
             node
                 .attr("transform", function(d) {
@@ -307,12 +327,18 @@ function restart() {
         node = node.enter()
         .merge(node);
 
-        link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
+        link = link.data(graph.links);
         link.exit().remove();
-        link = link.enter().append("line").attr("stroke-width", function(d) { return d.value; })
-        .attr("stroke", function() {
+        link = link.enter()
+        .merge(link);
+
+        d3.selectAll("polyline").attr("stroke", function() {
             return d3.rgb(colors[(stepper - 1)]).darker(0.5);
-        }).merge(link);
+        });
+
+        d3.select("#arrowhead path").attr("fill", function() {
+            return d3.rgb(colors[(stepper - 1)]).darker(0.5);
+        });
 
         // UPDATE CIRCLES
         node.selectAll("circle").remove();
@@ -443,10 +469,11 @@ function restart() {
         function ticked() {
     
             link
-                .attr("x1", function(d) { return d.source.x; })
-                .attr("y1", function(d) { return d.source.y; })
-                .attr("x2", function(d) { return d.target.x; })
-                .attr("y2", function(d) { return d.target.y; });
+            .attr("points", function(d) {
+                return d.source.x + "," + d.source.y + " " + 
+                (d.source.x + d.target.x)/2 + "," + (d.source.y + d.target.y)/2 + " " +
+                d.target.x + "," + d.target.y; 
+            });
     
             node
                 .attr("transform", function(d) {
