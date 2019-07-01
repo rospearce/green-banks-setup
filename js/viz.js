@@ -296,15 +296,50 @@ function restart() {
         node = node.data(graph.nodes);
         node.exit().remove();
         node = node.enter()
-        .append("circle")
         .merge(node);
 
         link = link.data(graph.links, function(d) { return d.source.id + "-" + d.target.id; });
         link.exit().remove();
         link = link.enter().append("line").attr("stroke-width", function(d) { return d.value; })
-        .attr("stroke", function(d) {
+        .attr("stroke", function() {
             return d3.rgb(colors[(stepper - 1)]).darker(0.5);
         }).merge(link);
+
+        // UPDATE CIRCLES
+        node.selectAll("circle").remove();
+
+        node.append("circle")
+        .attr("r", function(d) {
+            if (d.id !== "5") {
+                return 45; 
+            } else {
+                return 60;
+            }
+        })
+        .style("fill", function(d) {
+            if (d.id !== "5") {
+                return colors[(stepper - 1)]; 
+            } else {
+                return "white";
+            }
+        })
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .on("click", function(d) {
+            switch(varState) {
+                case 0:
+                    if (d.id !== "5") {
+                        d3.select("#questions").html(d.text);
+                        d3.selectAll("h3, .point-up").style("color", function(d) {
+                            return colors[(stepper -1)];
+                        });
+                    };
+                    break;
+                case 1:
+                    // no actions
+                    break;
+            }
+        });
 
         // UPDATE TEXT
         node.selectAll("text").remove();
@@ -385,19 +420,6 @@ function restart() {
         .attr("class", "label")
         .attr('x', 0)
         .attr('y', 15);
-
-        // UPDATE CIRCLES
-        node.selectAll("circle")
-        .style("fill", function(d) {
-            if (d.id !== "5") {
-                return colors[(stepper - 1)]; 
-            } else {
-                return "white";
-            }
-        })
-        .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
-        .on("click", mouseclick);
 
         // RESTART SIMULATION
         function ticked() {
