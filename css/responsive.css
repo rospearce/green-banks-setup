@@ -1,3 +1,40 @@
+
+@media all and (min-width: 1050px) {
+
+    p {
+        font-size: 16px;
+    }
+
+    #questions p {
+        font-size: 14.5px;
+    }
+}
+
+@media all and (min-width: 1150px) {
+
+    .large {
+        -ms-flex: 2.2 0 0;
+        -webkit-flex: 2.2 0 0;
+        flex: 2.2 0 0;
+    }
+
+}
+
+@media all and (min-width: 1250px) {
+
+    #text {
+        margin: 30px;
+        margin-right: 60px;
+    }
+
+    .large {
+        -ms-flex: 2 0 0;
+        -webkit-flex: 2 0 0;
+        flex: 2 0 0;
+    }
+
+}
+
 @media all and (min-width: 1350px) {
 
     #wrapper {
@@ -17,40 +54,16 @@
     }
 
     #text {
-        margin: 30px;
-    }
-
-}
-
-@media all and (min-width: 1150px) {
-
-    .large {
-        -ms-flex: 2 0 0;
-        -webkit-flex: 2 0 0;
-        flex: 2 0 0;
-    }
-
-}
-
-@media all and (min-width: 1050px) {
-
-    #text {
-        margin: 20px;
+        margin: 40px;
+        margin-right: 80px;
     }
 
     .large {
-        -ms-flex: 2.5 0 0;
-        -webkit-flex: 2.5 0 0;
-        flex: 2.5 0 0;
+        -ms-flex: 1.6 0 0;
+        -webkit-flex: 1.6 0 0;
+        flex: 1.6 0 0;
     }
 
-    p {
-        font-size: 16px;
-    }
-
-    #questions p {
-        font-size: 14.5px;
-    }
 }
 
 @media all and (max-width: 900px) {
@@ -60,6 +73,10 @@
     }
 
     #questions p {
+        font-size: 13.5px;
+    }
+
+    #questions ul {
         font-size: 13.5px;
     }
 
@@ -80,6 +97,10 @@
         font-size: 22px;
     }
 
+    #text {
+        margin: 15px;
+    }
+
 }
 
 @media all and (max-width: 700px) {
@@ -95,6 +116,10 @@
     }
 
     #questions p {
+        font-size: 13px;
+    }
+
+    #questions ul {
         font-size: 13px;
     }
 

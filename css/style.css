@@ -114,9 +114,9 @@ h1 {
 }
 
 .large {
-    -ms-flex: 3 0 0;
-    -webkit-flex: 3 0 0;
-    flex: 3 0 0;
+    -ms-flex: 2.4 0 0;
+    -webkit-flex: 2.4 0 0;
+    flex: 2.4 0 0;
 }
 
 .small {
@@ -132,7 +132,7 @@ h1 {
 }
 
 #text {
-    margin: 15px;
+    margin: 20px;
 }
 
 #text-wrapper {

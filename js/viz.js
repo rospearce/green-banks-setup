@@ -23,8 +23,8 @@ function updateSize () {
         return (networkHeight - flowHeight)/2;
     });
 
-    $("#dot-nav").css("left", function () {
-        return (networkWidth/2 - 30);
+    $("#dot-nav ul").css("left", function () {
+        return (networkWidth/2 - 90);
     });
 
     if (networkHeight > networkWidth) {
