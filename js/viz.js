@@ -24,7 +24,7 @@ function updateSize () {
     });
 
     $("#dot-nav ul").css("left", function () {
-        return (networkWidth/2 - 90);
+        return (networkWidth/2 - 100);
     });
 
     if (networkHeight > networkWidth) {

@@ -57,15 +57,19 @@
         font-size: 15.5px;
     }
 
+    #text-wrapper {
+        max-width: 600px;
+    }
+
     #text {
         margin: 40px;
         margin-right: 80px;
     }
 
     .large {
-        -ms-flex: 1.6 0 0;
-        -webkit-flex: 1.6 0 0;
-        flex: 1.6 0 0;
+        -ms-flex: 1.8 0 0;
+        -webkit-flex: 1.8 0 0;
+        flex: 1.8 0 0;
     }
 
 }
