@@ -16,7 +16,7 @@ function updateSize () {
     $("#background").width(networkWidth);
     $("#background").height(networkHeight);
 
-    $("#flow-wrapper").width(networkWidth*5);
+    $("#flow-wrapper").width(networkWidth*6);
 
     let flowHeight = $("#flow-wrapper").height();
     $("#flow-wrapper").css("margin-top", function () {
@@ -302,6 +302,14 @@ function restart() {
     
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].text;
+            });
+
+            d3.select("#questions").html(function(d) {
+                if (stepper !== 5) {
+                    return "<em>The key decisions and choices of this phase will be determined by a number of elements, from stakeholder engagement, decision making process, analytical support and standards and framework. Their interlinkages shapes the outputs of the phase which are the foundations for the next phase (click on each bubble to see more).</em>";
+                } else {
+                    return "<em>The key decisions and choices of this phase will be determined by a number of elements, from stakeholder engagement, decision making process, analytical support and standards and framework. Their interlinkages shapes the outputs of the phase (click on each bubble to see more).</em>"
+                }
             });
 
         } else {
@@ -614,6 +622,14 @@ function backwards () {
 
             d3.select("#description").html(function(d) {
                 return graph.nodes[4].text;
+            });
+
+            d3.select("#questions").html(function(d) {
+                if (stepper !== 5) {
+                    return "<em>The key decisions and choices of this phase will be determined by a number of elements, from stakeholder engagement, decision making process, analytical support and standards and framework. Their interlinkages shapes the outputs of the phase which are the foundations for the next phase (click on each bubble to see more).</em>";
+                } else {
+                    return "<em>The key decisions and choices of this phase will be determined by a number of elements, from stakeholder engagement, decision making process, analytical support and standards and framework. Their interlinkages shapes the outputs of the phase (click on each bubble to see more).</em>"
+                }
             });
         });
 
