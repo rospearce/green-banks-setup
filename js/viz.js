@@ -707,6 +707,16 @@ function hideIntro () {
 
 }
 
+function showIntro () {
+
+    $("#intro").fadeTo("fast", 1, moveBehind);
+
+    function moveBehind () {
+        $("#intro").css("z-index", "15");
+    }
+
+}
+
 // nav bar actions
 $("#dot-nav li").on("click", function() {
 
